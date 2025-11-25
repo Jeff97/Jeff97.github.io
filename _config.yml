@@ -8,10 +8,10 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Homepage"
+title                    : "South China University of Technology"
 title_separator          : "-"
 name                     : &name "Zhanfeng Li"
-# description              : &description "personal description"
+description              : &description "Academic homepage of Zhanfeng Li (李展锋), Postdoctoral Fellow at South China University of Technology. Research in Soft Matter Mechanics & Growth Deformation."
 url                      : https://Jeff97.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 # baseurl                  : "" # the subpath of your site, e.g. "/blog"
 # repository               : "academicpages/academicpages.github.io"

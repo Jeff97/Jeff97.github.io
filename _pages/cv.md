@@ -19,8 +19,8 @@ Education
 
 Work experience
 ======
-* **Postdoctoral Fellow**, South China University of Technology, 2023.11 - Present
-  * Co-supervisor: Prof. Xiaohu Yao
+* **Postdoc**, South China University of Technology, 2023.11 - Present
+  * Supervisor: Prof. Xiaohu Yao
 
 Research Interests
 ======
