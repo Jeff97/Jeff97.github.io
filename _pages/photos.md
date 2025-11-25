@@ -51,8 +51,8 @@ gallery_2023:
 gallery_2022:
   - url: /photos/20221009-FengGroup.jpg
     image_path: /photos/20221009-FengGroup.jpg
-    alt: "Feng's Group"
-    title: "Feng's Group (2022-10-09)"
+    alt: "Yuntian's Group"
+    title: "Yuntian's Group (2022-10-09)"
   - url: /photos/20220923-MokarramGroup.jpg
     image_path: /photos/20220923-MokarramGroup.jpg
     alt: "Mokarram's Group"
