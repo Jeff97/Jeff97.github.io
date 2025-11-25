@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Zhanfeng Li"
+title: "Home"
 author_profile: true
 redirect_from: 
   - /about/
