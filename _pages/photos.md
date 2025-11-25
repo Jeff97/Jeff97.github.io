@@ -2,10 +2,6 @@
 title: "Photos"
 permalink: /photos/
 author_profile: true
----
-title: "Photos"
-permalink: /photos/
-author_profile: true
 gallery_2025:
   - url: /photos/20250906-JiongGroup.jpg
     image_path: /photos/20250906-JiongGroup.jpg
