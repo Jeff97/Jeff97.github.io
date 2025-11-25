@@ -71,7 +71,8 @@ gallery_2019:
 
 {% include base_path %}
 
-Here are some photos of my research group and activities.
+Here are some photos of my activities.
+
 
 ## 2025
 {% include gallery id="gallery_2025" caption="Activities in 2025" %}

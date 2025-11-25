@@ -207,7 +207,8 @@ figure {
 
   &.half {
     > a,
-    > img {
+    > img,
+    > .gallery-item {
       @include breakpoint($small) {
         width: calc(50% - 0.5em);
       }
@@ -220,7 +221,8 @@ figure {
 
   &.third {
     > a,
-    > img {
+    > img,
+    > .gallery-item {
       @include breakpoint($small) {
         width: calc(33.3333% - 0.5em);
       }
@@ -229,6 +231,22 @@ figure {
     figcaption {
       width: 100%;
     }
+  }
+}
+
+.gallery-item {
+  display: block;
+  margin-bottom: 1em;
+
+  img {
+    margin-bottom: 0.5em;
+    width: 100%;
+  }
+
+  .gallery-caption {
+    font-size: $type-size-6;
+    text-align: center;
+    color: mix(#fff, $text-color, 25%);
   }
 }
 

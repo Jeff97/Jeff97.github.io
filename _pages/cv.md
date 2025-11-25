@@ -28,7 +28,7 @@ Research Interests
 * Plate and Shell Theory
 * Growth Deformation Control
 * Mixed Finite Element Methods
-* ABAQUS Subroutine Secondary Development
+* ABAQUS Subroutine Development
 
 Publications
 ======
