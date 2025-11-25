@@ -21,10 +21,10 @@ url                      : https://Jeff97.github.io # the base hostname & protoc
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "profile.jpg"
   name             : "Zhanfeng Li (李展锋)"
   pronouns         : # example: "she/her"  
-  bio              : "Growth mechanics of soft materials"
+  bio              : "Postdoctoral Fellow. Soft matter mechanics & Growth deformation."
   location         : "China"
   employer         : "South China University of Technology"
   uri              : # URL

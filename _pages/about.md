@@ -7,10 +7,25 @@ redirect_from:
   - /about.html
 ---
 
-Hello! I’m Zhanfeng Li, a postdoc specializing in [Your Specialty]. This blog is a platform where I share insights and ideas about [Topics You Cover], aiming to [What You Aim to Achieve Through the Blog].
+I am currently a **Postdoctoral Fellow** at the School of Civil Engineering and Transportation, **South China University of Technology (SCUT)**, working with **Prof. Xiaohu Yao**.
 
-I earned my [Degree] from [University] and have worked on [Brief Description of Your Research or Projects]. My work has been recognized by [Awards or Recognitions], and I am passionate about [Something Relevant to Your Field].
+My research interests focus on **Soft Matter Mechanics**, **Plate and Shell Theory**, **Growth Deformation Control**, **Mixed Finite Element Methods**, and **ABAQUS Subroutine Secondary Development**. Specifically, I am interested in the analytical study of growth deformation in plate/shell-like soft materials, shape control theory based on growth deformation, and numerical calculations of multi-field coupled growth deformation.
 
-Through this blog, I aim to engage with fellow researchers, students, and anyone interested in [Your Field]. I believe that sharing knowledge is crucial for collective growth and understanding.
+## Education
 
-Feel free to reach out through [Contact Information] or follow my updates on [Social Media Links].
+*   **Ph.D. in Mechanics**, South China University of Technology, 2019.09 - 2023.09
+    *   Supervisor: **Prof. Jiong Wang**
+*   **Joint Ph.D. Training**, Swansea University, 2021.11 - 2022.11
+    *   Co-supervisor: **Prof. Mokarram Hossain**
+    *   Supported by China Scholarship Council (CSC)
+*   **B.E. in Engineering Mechanics**, South China University of Technology, 2015.09 - 2019.06
+
+## Work Experience
+
+*   **Postdoctoral Fellow**, South China University of Technology, 2023.11 - Present
+    *   Co-supervisor: **Prof. Xiaohu Yao**
+
+## Contact
+
+*   **Email:** zhanfengli@scut.edu.cn
+*   **Office:** School of Civil Engineering and Transportation, South China University of Technology
