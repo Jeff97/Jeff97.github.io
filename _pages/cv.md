@@ -11,16 +11,17 @@ redirect_from:
 
 Education
 ======
-* **Ph.D. in Mechanics**, South China University of Technology, 2019.09 - 2023.09
-  * Supervisor: Prof. Jiong Wang
-* **Joint Ph.D. Training**, Swansea University, 2021.11 - 2022.11
-  * Co-supervisor: Prof. Mokarram Hossain
-* **B.E. in Engineering Mechanics**, South China University of Technology, 2015.09 - 2019.06
+*   **Ph.D. in Mechanics**, South China University of Technology, 2019.09 - 2023.09
+    *   Supervisor: **Prof. Jiong Wang** (王 炯)
+*   **Visiting Ph.D. Student**, Swansea University, 2021.11 - 2022.11
+    *   Co-supervisor: **Prof. Mokarram Hossain**
+    *   Supported by China Scholarship Council (CSC)
+*   **B.E. in Engineering Mechanics**, South China University of Technology, 2015.09 - 2019.06
 
 Work experience
 ======
-* **Postdoc**, South China University of Technology, 2023.11 - Present
-  * Supervisor: Prof. Xiaohu Yao
+*   **Postdoc**, South China University of Technology, 2023.11 - Present
+    *   Supervisor: **Prof. Xiaohu Yao** (姚小虎)
 
 Research Interests
 ======
