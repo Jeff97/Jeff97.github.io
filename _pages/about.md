@@ -26,6 +26,7 @@ We developed a theoretical framework to analytically solve the forward problem o
 We proposed a "stress-free growth" approach to solve the inverse problem for precise shape control. By establishing analytical relationships between growth tensors and target geometries, we enabled arbitrary conformal mappings and general shape transformations of thin hyperelastic shells, supporting topology optimization and complex surface generation.
 
 ### 3. Numerical Simulation of Multi-field Coupled Growth Deformation
+![Volvox inversion](/images/Volvox.png)
 We developed a finite element framework for **coupled magneto-mechanical growth** to explore interactions in smart soft materials. Establishing a 3D governing system integrating magnetic fields, mechanics, and growth, we simulated surface pattern modulation and biological morphogenesis (e.g., Volvox inversion), demonstrating potential for adaptive soft structures.
 
 <!-- TODO: pls add figure to each highlight -->
