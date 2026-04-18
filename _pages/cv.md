@@ -77,7 +77,7 @@ Publications
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   
-学术报告（自动列表）
+Talks
 ======
   <ul>{% for post in site.talks reversed %}
     {% include archive-single-talk-cv.html  %}
