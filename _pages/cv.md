@@ -32,7 +32,7 @@ Research Interests
 * Mixed Finite Element Methods
 * ABAQUS Subroutine Development
 
-学术会议
+Talks
 ======
 1. 李展锋，超弹性板在体力与非均匀生长作用下的形状控制，第四届全国软物质力学大会，安徽省合肥市，2025-11-07 至 2025-11-09（口头报告）。
 2. 李展锋、王亚飞、王作栋、Chennakesava Kadapa、Mokarram Hossain、姚小虎、王炯，软材料的力-磁耦合生长：膜基结构失稳调控与团藻内外翻转模拟，中国力学大会-2025，湖南省长沙市，2025-07-18 至 2025-07-21（口头报告）。
