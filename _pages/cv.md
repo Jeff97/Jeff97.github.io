@@ -32,14 +32,14 @@ Research Interests
 * Mixed Finite Element Methods
 * ABAQUS Subroutine Development
 
-Selected Academic Presentations
+学术会议
 ======
-1. Li Zhanfeng, "Shape control of hyperelastic plates under body forces and non-uniform growth," The 4th National Conference on Soft Matter Mechanics, Hefei, China, 2025.11.07 - 2025.11.09 (Oral).
-2. Li Zhanfeng, Wang Yafei, Wang Zuodong, Chennakesava Kadapa, Mokarram Hossain, Yao Xiaohu, Wang Jiong, "Coupled magneto-mechanical growth in soft materials: Surface instability modulation and Volvox inversion simulation," China Congress of Theoretical and Applied Mechanics 2025, Changsha, China, 2025.07.18 - 2025.07.21 (Oral).
-3. Li Zhanfeng, "A finite element framework for coupled magneto-mechanical growth," The 3rd National Conference on Soft Matter Mechanics, Xi'an, China, 2024.11.01 - 2024.11.03 (Oral).
-4. Li Zhanfeng, Jin Zili, Wang Zuodong, Lan Junjie, Wang Jiong, "Shape control of free growth deformations in hyperelastic plates and shells," The 5th National Mechanics PhD Forum (Chinese Society of Theoretical and Applied Mechanics), Guangzhou, China, 2024.11.30 - 2024.12.01 (Oral).
-5. Li Zhanfeng, Chennakesava Kadapa, Mokarram Hossain, Wang Jiong, "A numerical framework for coupled electromechanical growth," The 14th National Conference on Explosion Mechanics, Nanning, China, 2023.11.17 - 2023.11.19 (Oral).
-6. Li Zhanfeng, Chennakesava Kadapa, Mokarram Hossain, Wang Jiong, "A numerical framework for coupled electromechanical growth," The 2nd National Conference on Soft Matter Mechanics, Hangzhou, China, 2023.11.10 - 2023.11.12 (Oral).
+1. 李展锋，超弹性板在体力与非均匀生长作用下的形状控制，第四届全国软物质力学大会，安徽省合肥市，2025-11-07 至 2025-11-09（口头报告）。
+2. 李展锋、王亚飞、王作栋、Chennakesava Kadapa、Mokarram Hossain、姚小虎、王炯，软材料的力-磁耦合生长：膜基结构失稳调控与团藻内外翻转模拟，中国力学大会-2025，湖南省长沙市，2025-07-18 至 2025-07-21（口头报告）。
+3. 李展锋，软材料力-磁耦合生长变形的数值计算框架，第三届全国软物质力学大会，陕西省西安市，2024-11-01 至 2024-11-03（口头报告）。
+4. 李展锋、金子力、王作栋、蓝俊杰、王炯，软材料板壳自由生长变形的形状控制，中国力学学会第五届全国力学博士生学术论坛，广东省广州市，2024-11-30 至 2024-12-01（口头报告）。
+5. 李展锋、Chennakesava Kadapa、Mokarram Hossain、王炯，软材料力-电耦合生长变形的数值计算框架，第十四届全国爆炸力学大会，广西壮族自治区南宁市，2023-11-17 至 2023-11-19（口头报告）。
+6. 李展锋、Chennakesava Kadapa、Mokarram Hossain、王炯，软材料力-电耦合生长变形的数值计算框架，第二届全国软物质力学大会，浙江省杭州市，2023-11-10 至 2023-11-12（口头报告）。
 
 Authorized Invention Patents
 ======
@@ -77,11 +77,11 @@ Publications
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   
-<!-- Talks
+学术报告（自动列表）
 ======
   <ul>{% for post in site.talks reversed %}
     {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul> -->
+  {% endfor %}</ul>
   
 <!-- Teaching
 ======
