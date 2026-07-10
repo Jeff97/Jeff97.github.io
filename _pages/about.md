@@ -48,6 +48,7 @@ I am an **Assistant Researcher (Postdoctoral Fellow)** at the School of Civil En
       <h3>Analytical mechanics of growing plates and shells</h3>
       <p>We derive reduced theories and closed-form results for growth-induced bending, buckling, and post-buckling, revealing the mechanics behind instability and pattern formation.</p>
     </div>
+    <img src="/images/IJMS-2026-experimental-results.png" alt="Experimental validation of shape control for hyperelastic plates">
   </article>
   <article class="research-card">
     <img src="/images/ShapeControl.jpg" alt="Stress-free growth-based shape programming">
