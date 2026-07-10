@@ -23,6 +23,15 @@ Work experience
   *   Supervisor: **Prof. Xiaohu Yao** (姚小虎)
   *   Research topic: Growth-induced deformation and shape control in plate/shell-like soft materials
 
+Research Projects
+======
+* **Principal Investigator**
+  * Postdoctoral Innovation Talent Support Program (Grade A), Project No. **BX20240119**, completed.
+  * Guangdong Basic and Applied Basic Research Foundation, General Program, Project No. **2025A1515010680**, ongoing.
+  * China Postdoctoral Science Foundation, General Program, Project No. **2025M771845**, ongoing.
+* **Participant**
+  * National Natural Science Foundation of China, General Program, Project No. **11872184**.
+
 Research Interests
 ======
 * Soft Matter Mechanics
@@ -41,11 +50,13 @@ Talks
 5. 李展锋、Chennakesava Kadapa、Mokarram Hossain、王炯，软材料力-电耦合生长变形的数值计算框架，第十四届全国爆炸力学大会，广西壮族自治区南宁市，2023-11-17 至 2023-11-19（口头报告）。
 6. 李展锋、Chennakesava Kadapa、Mokarram Hossain、王炯，软材料力-电耦合生长变形的数值计算框架，第二届全国软物质力学大会，浙江省杭州市，2023-11-10 至 2023-11-12（口头报告）。
 
-Authorized Invention Patents
+授权发明专利
 ======
-1. Jiong Wang; **Zhanfeng Li**. Method and storage medium for growth deformation of incompressible hyperelastic shell-like soft materials, China, CN202210946987.0, 2025-11-21.
-2. Jiong Wang; **Zhanfeng Li**. Method, system and medium for configuration evolution control of hyperelastic thin plates through growth deformation, China, CN202111324510.0, 2024-11-12.
-3. Jiong Wang; **Zhanfeng Li**. Continuum damage prediction method and system for high-temperature oxidation corrosion of high-Cr steel components, China, CN202010295195.2, 2024-05-28.
+1. 王炯；**李展锋**。不可压超弹性壳构型软材料生长变形方法及存储介质，专利号：ZL 2022 1 0946987.0，授权公告日：2025-11-21。
+2. 王炯；**李展锋**。基于生长变形的超弹性薄板构型演化控制方法、系统及介质，专利号：ZL 2021 1 1324510.0，授权公告日：2024-11-12。
+3. 王炯；**李展锋**。高铬钢构件高温氧化腐蚀的连续损伤预测方法及系统，专利号：ZL 2020 1 0295195.2，授权公告日：2024-05-28。
+4. 杜平；王炯；陈淡贤；**李展锋**。一种用于磁致变形材料实验测试的磁场动态加载控制装置，专利号：ZL 2020 1 0744187.1，授权公告日：2022-12-16。
+5. **李展锋**；王炯。一种超弹性壳生长变形控制的数值计算方法、装置及介质，专利号：ZL 2024 1 0574661.9，授权公告日：2026-06-30。
 
 Honors and Awards
 ======
@@ -58,6 +69,11 @@ Honors and Awards
 * Excellent Prize, Guangdong Mechanics Competition (2016)
 * First Prize, SCUT Aeromodelling Design Competition (2018)
 * First Prize, SCUT Photography Competition (2018)
+
+Academic Service
+======
+* Reviewer for *Acta Mechanica Solida Sinica*.
+* Member of the Chinese Society of Theoretical and Applied Mechanics; member representative of the Guangdong Society of Mechanics.
 
 Skills
 ======

@@ -8,11 +8,11 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "South China University of Technology"
-title_separator          : "-"
-name                     : &name "Zhanfeng Li"
-description              : &description "Academic homepage of Zhanfeng Li (李展锋), Postdoctoral Fellow at South China University of Technology. Research in Soft Matter Mechanics & Growth Deformation."
-url                      : https://Jeff97.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+title                    : "Zhanfeng Li"
+title_separator          : "·"
+name                     : &name "Zhanfeng Li (李展锋)"
+description              : &description "Academic homepage of Zhanfeng Li, Postdoctoral Fellow at South China University of Technology. Research in soft matter mechanics, growth and morphing structures."
+url                      : https://jeff97.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 # baseurl                  : "" # the subpath of your site, e.g. "/blog"
 # repository               : "academicpages/academicpages.github.io"
 
@@ -24,7 +24,7 @@ author:
   avatar           : "profile.jpg"
   name             : "Zhanfeng Li (李展锋)"
   pronouns         : # example: "she/her"  
-  bio              : "Soft matter mechanics & Growth deformation."
+  bio              : "Soft matter mechanics · Growth & morphing"
   location         : "China"
   employer         : "South China University of Technology"
   uri              : # URL
@@ -126,13 +126,15 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 :  # Open Graph/Twitter default site image
+og_image                 : /images/og.png # Open Graph/Twitter default site image
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
-  type                   : # Person or Organization (defaults to Person)
-  name                   : # If the user or organization name differs from the site's name
-  links: # An array of links to social media profiles
+  type                   : Person
+  name                   : "Zhanfeng Li"
+  links:
+    - "https://scholar.google.com/citations?user=6q4o6skAAAAJ"
+    - "https://orcid.org/0000-0001-5458-3123"
 
 
 # Analytics

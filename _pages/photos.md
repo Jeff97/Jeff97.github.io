@@ -2,6 +2,11 @@
 title: "Photos"
 permalink: /photos/
 author_profile: true
+gallery_2026:
+  - url: /photos/20260613-GraduationGroup.jpg
+    image_path: /photos/20260613-GraduationGroup.jpg
+    alt: "Graduation group photo at SCUT"
+    title: "Graduation group photo, SCUT (2026-06-13)"
 gallery_2025:
   - url: /photos/20250906-JiongGroup.jpg
     image_path: /photos/20250906-JiongGroup.jpg
@@ -74,6 +79,9 @@ gallery_2019:
 Here are some photos of my activities.
 
 
+## 2026
+{% include gallery id="gallery_2026" caption="Graduation and group activities in 2026" %}
+
 ## 2025
 {% include gallery id="gallery_2025" caption="Activities in 2025" %}
 
@@ -88,4 +96,3 @@ Here are some photos of my activities.
 
 ## 2019
 {% include gallery id="gallery_2019" caption="Activities in 2019" %}
-
