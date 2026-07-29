@@ -3,6 +3,18 @@ title: "Photos"
 permalink: /photos/
 author_profile: true
 gallery_2026:
+  - url: /photos/20260720-ECCOMAS-Talk.jpg
+    image_path: /photos/20260720-ECCOMAS-Talk.jpg
+    alt: "Oral presentation at WCCM-ECCOMAS 2026"
+    title: "Oral presentation at WCCM-ECCOMAS 2026 (2026-07-20)"
+  - url: /photos/20260723-ECCOMAS.jpg
+    image_path: /photos/20260723-ECCOMAS.jpg
+    alt: "At WCCM-ECCOMAS 2026 in Munich"
+    title: "WCCM-ECCOMAS 2026 in Munich (2026-07-23)"
+  - url: /photos/20260723-Mokarram.jpg
+    image_path: /photos/20260723-Mokarram.jpg
+    alt: "With Mokarram Hossain at WCCM-ECCOMAS 2026"
+    title: "With Mokarram Hossain at WCCM-ECCOMAS 2026 (2026-07-23)"
   - url: /photos/20260613-GraduationGroup.jpg
     image_path: /photos/20260613-GraduationGroup.jpg
     alt: "Graduation group photo at SCUT"
@@ -80,7 +92,7 @@ Here are some photos of my activities.
 
 
 ## 2026
-{% include gallery id="gallery_2026" caption="Graduation and group activities in 2026" %}
+{% include gallery id="gallery_2026" caption="Conference, graduation, and group activities in 2026" %}
 
 ## 2025
 {% include gallery id="gallery_2025" caption="Activities in 2025" %}
