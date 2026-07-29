@@ -11,10 +11,10 @@ gallery_2026:
     image_path: /photos/20260723-ECCOMAS.jpg
     alt: "At WCCM-ECCOMAS 2026 in Munich"
     title: "WCCM-ECCOMAS 2026 in Munich (2026-07-23)"
-  - url: /photos/20260723-Mokarram.jpg
-    image_path: /photos/20260723-Mokarram.jpg
-    alt: "With Mokarram Hossain at WCCM-ECCOMAS 2026"
-    title: "With Mokarram Hossain at WCCM-ECCOMAS 2026 (2026-07-23)"
+  - url: /photos/20260723-Kadapa.jpg
+    image_path: /photos/20260723-Kadapa.jpg
+    alt: "With Professor Kadapa at WCCM-ECCOMAS 2026"
+    title: "With Professor Kadapa at WCCM-ECCOMAS 2026 (2026-07-23)"
   - url: /photos/20260613-GraduationGroup.jpg
     image_path: /photos/20260613-GraduationGroup.jpg
     alt: "Graduation group photo at SCUT"
