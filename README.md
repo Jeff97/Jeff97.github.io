@@ -1,42 +1,81 @@
+# Zhanfeng Li — Academic Website
 
-# Academic Pages
+_Source for the academic homepage of Zhanfeng Li, a postdoctoral fellow working on soft-matter mechanics, growth, and morphing structures._
 
-![pages-build-deployment](https://github.com/academicpages/academicpages.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)
+[![Website](https://img.shields.io/badge/website-jeff97.github.io-0A66C2)](https://jeff97.github.io)
+[![GitHub stars](https://img.shields.io/github/stars/Jeff97/Jeff97.github.io?style=social)](https://github.com/Jeff97/Jeff97.github.io/stargazers)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-Academic Pages is a Github Pages template for academic websites.
+---
 
+## 📋 Overview
 
-# Getting Started
+This repository powers [jeff97.github.io](https://jeff97.github.io), the personal academic website of **Zhanfeng Li (李展锋)** at South China University of Technology. The site presents research interests, publications, talks, teaching, portfolio material, and contact links.
 
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Click the "Use this template" button in the top right.
-1. On the "New repository" page, enter your repository name as "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and add your content.
-1. Upload any files (like PDFs, .zip files, etc.) to the `files/` directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.  
-1. Check status by going to the repository settings, in the "GitHub pages" section
-1. (Optional) Use the Jupyter notebooks or python scripts in the `markdown_generator` folder to generate markdown files for publications and talks from a TSV file.
+<p align="center">
+  <img src="images/profile.jpg" width="190" alt="Profile photograph of Zhanfeng Li">
+</p>
 
-See more info at https://academicpages.github.io/
+_Figure 1: Profile image used by the academic website._
 
-## Running Locally
+The site is built with Jekyll and GitHub Pages on top of the Academic Pages template[^1].
 
-When you are initially working your website, it is very useful to be able to preview the changes locally before pushing them to GitHub. To work locally you will need to:
+## 🌐 Visit the site
 
-1. Clone the repository and made updates as detailed above.
-1. Make sure you have ruby-dev, bundler, and nodejs installed: `sudo apt install ruby-dev ruby-bundler nodejs`
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
-1. Run `jekyll serve -l -H localhost` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change.
+- **Homepage:** [https://jeff97.github.io](https://jeff97.github.io)
+- **Google Scholar:** [Publication profile](https://scholar.google.com/citations?user=6q4o6skAAAAJ)
+- **ORCID:** [0000-0001-5458-3123](https://orcid.org/0000-0001-5458-3123)
+- **ResearchGate:** [Zhanfeng Li](https://www.researchgate.net/profile/Zhanfeng-Li-2)
 
-If you are running on Linux it may be necessary to install some additional dependencies prior to being able to run locally: `sudo apt install build-essential gcc make`
+## 📚 Content structure
 
-# Maintenance 
+| Path | Purpose |
+| --- | --- |
+| [`_pages/`](_pages/) | Main site pages and navigation destinations |
+| [`_publications/`](_publications/) | Publication records |
+| [`_talks/`](_talks/) | Talks and presentations |
+| [`_teaching/`](_teaching/) | Teaching entries |
+| [`_portfolio/`](_portfolio/) | Research and project highlights |
+| [`_posts/`](_posts/) | News and dated posts |
+| [`files/`](files/) | Downloadable documents |
+| [`images/`](images/) | Profile and research imagery |
+| [`_config.yml`](_config.yml) | Identity, URL, collections, and Jekyll settings |
 
-Bug reports and feature requests to the template  should be [submitted via GitHub](https://github.com/academicpages/academicpages.github.io/issues/new/choose). For questions concerning how to style the template, please feel free to start a [new discussion on GitHub](https://github.com/academicpages/academicpages.github.io/discussions).
+## 🔧 Local preview
 
-This repository was forked (then detached) by [Stuart Geiger](https://github.com/staeiou) from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/), which is © 2016 Michael Rose and released under the MIT License (see LICENSE.md). It is currently being maintained by [Robert Zupko](https://github.com/rjzupkoii) and additional maintainers would be welcomed.
+### Prerequisites
 
-## Bugfixes and enhancements
+- Ruby and Bundler
+- A native build toolchain required by the selected Ruby gems
 
-If you have bugfixes and enhancements that you would like to submit as a pull request, you will need to [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) this repository as opposed to using it as a template. This will also allow you to [synchronize your copy](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) of template to your fork as well.
+### Run the site
 
-Unfortunately, one logistical issue with a template theme like Academic Pages that makes it a little tricky to get bug fixes and updates to the core theme. If you use this template and customize it, you will probably get merge conflicts if you attempt to synchronize. If you want to save your various .yml configuration files and markdown files, you can delete the repository and fork it again. Or you can manually patch.
+```bash
+git clone https://github.com/Jeff97/Jeff97.github.io.git
+cd Jeff97.github.io
+bundle install
+bundle exec jekyll serve -l -H localhost
+```
+
+Open [http://localhost:4000](http://localhost:4000). Jekyll reloads content changes automatically; restart the server after changing `_config.yml`.
+
+## ⚙️ Updating content
+
+1. Edit identity, profile links, and site-wide behavior in `_config.yml`
+2. Add or revise Markdown entries in the appropriate collection directory
+3. Place downloadable documents in `files/` and reusable media in `images/`
+4. Preview locally and check internal links before pushing to `master`
+
+The `markdown_generator/` utilities can help turn structured publication or talk data into collection entries, but direct Markdown editing is also supported.
+
+## 🔗 Template attribution
+
+This site is based on [Academic Pages](https://github.com/academicpages/academicpages.github.io)[^1], which in turn is derived from the Minimal Mistakes Jekyll theme[^2]. The site-specific content and configuration are maintained in this repository; upstream theme credits remain intact.
+
+## 🔐 License
+
+The theme code retains its original [MIT License](LICENSE) and copyright notice for Michael Rose. Personal text, photographs, publications, and third-party assets may be subject to separate rights and are not relicensed merely by appearing in this repository.
+
+[^1]: Academic Pages. “Academic Pages is a GitHub Pages template for personal and professional portfolio-oriented websites.” https://github.com/academicpages/academicpages.github.io
+
+[^2]: Michael Rose. “Minimal Mistakes Jekyll theme.” https://github.com/mmistakes/minimal-mistakes
