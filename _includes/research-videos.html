@@ -1,0 +1,22 @@
+{% if include.video_ids and include.video_ids.size > 0 %}
+<section class="research-videos" aria-label="{{ include.label | escape }}">
+  {% for video_id in include.video_ids %}
+  {% assign video = site.data.research_videos[video_id] %}
+  <figure class="research-video">
+    <video controls playsinline preload="none" poster="{{ video.poster | relative_url }}" aria-label="{{ video.title | escape }}">
+      <source src="{{ video.src | escape }}" type="video/mp4">
+      Your browser does not support embedded video. <a href="{{ video.src | escape }}">Open the MP4 video</a>.
+    </video>
+    <figcaption>
+      <strong>{{ video.title | escape }}</strong>
+      <span>{{ video.caption | escape }}</span>
+      <span class="research-video__links">
+        {% if video.doi %}<a href="https://doi.org/{{ video.doi }}">{{ video.publication | escape }}</a>{% else %}{{ video.publication | escape }}{% endif %}
+        · <a href="{{ video.source | escape }}">GitHub source</a>
+        · <a href="{{ video.src | escape }}">Open video</a>
+      </span>
+    </figcaption>
+  </figure>
+  {% endfor %}
+</section>
+{% endif %}

@@ -5,8 +5,8 @@ author_profile: true
 gallery_2026:
   - url: /photos/20260906-ResearchGroup.jpg
     image_path: /photos/20260906-ResearchGroup.jpg
-    alt: "Research group photo"
-    title: "Research group photo (2026-09-06)"
+    alt: "Jiong's Group"
+    title: "Jiong's Group (2026-09-06)"
   - url: /photos/20260824-Tianjin-Talk.jpg
     image_path: /photos/20260824-Tianjin-Talk.jpg
     alt: "Oral presentation at the 2026 Conference of Chinese Solid Mechanics in Tianjin"

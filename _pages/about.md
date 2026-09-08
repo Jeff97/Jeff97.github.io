@@ -7,22 +7,21 @@ redirect_from:
   - /about.html
 latest_publication_doi: "10.1016/j.ijmecsci.2026.111329"
 latest_publication_image: "/images/IJMS-2026-experimental-results.png"
+latest_publication_videos: [latest]
 research_highlights:
-  - title: "Analytical mechanics of growing plates and shells"
-    doi: "10.1016/j.ijmecsci.2026.111329"
-    image: "/images/IJMS-2026-experimental-results.png"
-    alt: "Experimental validation of shape control for hyperelastic plates"
-    summary: "We derive reduced theories and closed-form results for growth-induced bending, buckling, and post-buckling, revealing the mechanics behind instability and pattern formation."
   - title: "Stress-free shape programming"
     doi: "10.1016/j.ijengsci.2025.104266"
     image: "/images/ShapeControl.jpg"
     alt: "Stress-free growth-based shape programming"
+    videos: [general, conformal, beam, shell]
     summary: "We establish analytical mappings between growth tensors and target geometries, enabling conformal mappings and general shape transformations in thin hyperelastic structures."
   - title: "Multiphysics computational modelling"
     doi: "10.1016/j.jmps.2025.106089"
     image: "/images/Volvox.png"
     alt: "Numerical simulation of multifield coupled growth deformation"
+    videos: [magneto]
     summary: "Mixed finite-element frameworks and ABAQUS subroutines support simulations of electro-mechanical and magneto-mechanical growth, from surface patterns to biological morphogenesis."
+
 ---
 
 <section class="academic-intro">
@@ -58,18 +57,23 @@ I am an **Assistant Researcher (Postdoctoral Fellow)** at the School of Civil En
   </figure>
 </section>
 
+{% include research-videos.html video_ids=page.latest_publication_videos label="Latest publication videos" %}
+
 {% capture research_highlights %}
 {% for highlight in page.research_highlights %}
   {% assign duplicates_latest = false %}
   {% if highlight.doi and highlight.doi == page.latest_publication_doi %}{% assign duplicates_latest = true %}{% endif %}
   {% if highlight.image and highlight.image == page.latest_publication_image %}{% assign duplicates_latest = true %}{% endif %}
   {% unless duplicates_latest %}
-  <article class="research-card">
+  <article class="research-highlight">
+  <div class="research-card">
     <div>
       <h3>{{ highlight.title | escape }}</h3>
       <p>{{ highlight.summary | escape }}</p>
     </div>
     <img src="{{ highlight.image }}" alt="{{ highlight.alt | escape }}">
+  </div>
+  {% include research-videos.html video_ids=highlight.videos label=highlight.title %}
   </article>
   {% endunless %}
 {% endfor %}
