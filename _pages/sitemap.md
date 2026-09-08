@@ -3,35 +3,45 @@ layout: archive
 title: "Sitemap"
 permalink: /sitemap/
 author_profile: true
+description: "Explore Zhanfeng Li's academic homepage, publications, talks, CV, and photos."
 ---
 
 {% include base_path %}
 
-A list of all the posts and pages found on the site. For you robots out there is an [XML version]({{ base_path }}/sitemap.xml) available for digesting as well.
+Explore my academic homepage, research publications, and conference talks. This directory updates automatically as new publications and talks are added. An [XML sitemap]({{ base_path }}/sitemap.xml) is also available for search engines.
 
-<h2>Pages</h2>
-{% for post in site.pages %}
-  {% include archive-single.html %}
-{% endfor %}
+<nav aria-label="Sitemap sections">
+  <a href="#main-pages">Main pages</a> &middot;
+  <a href="#publications">Publications</a> &middot;
+  <a href="#talks">Talks</a>
+</nav>
 
-<h2>Posts</h2>
-{% for post in site.posts %}
-  {% include archive-single.html %}
-{% endfor %}
+<h2 id="main-pages">Main pages</h2>
+<ul>
+  <li><a href="{{ base_path }}/">About me</a></li>
+  {% for item in site.data.navigation.main %}
+  <li><a href="{{ item.url | relative_url }}">{{ item.title | escape }}</a></li>
+  {% endfor %}
+</ul>
 
-{% capture written_label %}'None'{% endcapture %}
+{% assign publications = site.publications | where_exp: 'item', 'item.sitemap != false' | sort: 'date' | reverse %}
+<h2 id="publications">Publications ({{ publications.size }})</h2>
+<ul>
+  {% for item in publications %}
+  <li>
+    <a href="{{ item.url | relative_url }}">{{ item.title | escape }}</a>
+    <small>({{ item.date | date: '%Y' }})</small>
+  </li>
+  {% endfor %}
+</ul>
 
-{% for collection in site.collections %}
-{% unless collection.output == false or collection.label == "posts" %}
-  {% capture label %}{{ collection.label }}{% endcapture %}
-  {% if label != written_label %}
-  <h2>{{ label }}</h2>
-  {% capture written_label %}{{ label }}{% endcapture %}
-  {% endif %}
-{% endunless %}
-{% for post in collection.docs %}
-  {% unless collection.output == false or collection.label == "posts" %}
-  {% include archive-single.html %}
-  {% endunless %}
-{% endfor %}
-{% endfor %}
+{% assign talks = site.talks | where_exp: 'item', 'item.sitemap != false' | sort: 'date' | reverse %}
+<h2 id="talks">Talks ({{ talks.size }})</h2>
+<ul>
+  {% for item in talks %}
+  <li>
+    <a href="{{ item.url | relative_url }}">{{ item.title | escape }}</a>
+    <small>(<time datetime="{{ item.date | date: '%Y-%m-%d' }}">{{ item.date | date: '%B %d, %Y' }}</time>)</small>
+  </li>
+  {% endfor %}
+</ul>
