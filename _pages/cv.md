@@ -88,10 +88,6 @@ redirect_from:
 
 * National Natural Science Foundation of China, General Program, Project No. **11872184**.
 
-<h2 class="cv-section-title"><span>Academic Profile</span></h2>
-
-* Google Scholar citations: 170+; h-index: 8.
-
 <h2 class="cv-section-title"><span>授权发明专利</span></h2>
 
 1. **李展锋**；王炯。一种超弹性壳生长变形控制的数值计算方法、装置及介质，专利号：ZL 2024 1 0574661.9，授权公告日：2026-06-30。

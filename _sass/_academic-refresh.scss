@@ -34,21 +34,25 @@ a:hover {
   }
 }
 
-.masthead__menu-item {
+.masthead .masthead__menu-item {
   a {
-    color: #304257;
-  }
-
-  &--lg a {
     color: #102c43;
     font-family: $serif;
     font-size: 1.15em;
+    font-weight: 700;
     letter-spacing: 0.01em;
   }
 }
 
 #main {
   margin-top: 3.2em;
+}
+
+// Match the Publications archive's content margins on Home and Photos.
+.page--archive-width {
+  @include breakpoint($large) {
+    padding-right: 0;
+  }
 }
 
 .sidebar {
