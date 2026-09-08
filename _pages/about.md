@@ -1,6 +1,8 @@
 ---
 permalink: /
 title: "Zhanfeng Li"
+seo_title: "Zhanfeng Li | South China University of Technology"
+description: "Zhanfeng Li (李展锋), Assistant Researcher and Postdoctoral Fellow at South China University of Technology (华南理工大学). Research in soft matter mechanics, growth, and shape control."
 author_profile: true
 redirect_from:
   - /about/
@@ -36,7 +38,7 @@ research_highlights:
   </div>
 </section>
 
-I am an **Assistant Researcher (Postdoctoral Fellow)** at the School of Civil Engineering and Transportation, **South China University of Technology (SCUT)**, working with **Prof. Xiaohu Yao**. I received my Ph.D. in Mechanics from SCUT in 2023 and was a visiting Ph.D. student at Swansea University (2021.11-2022.11), co-supervised by **Prof. Mokarram Hossain**.
+I am **Zhanfeng Li (李展锋)**, an **Assistant Researcher (Postdoctoral Fellow)** at the School of Civil Engineering and Transportation, **South China University of Technology (SCUT, 华南理工大学)**, working with **Prof. Xiaohu Yao**. I received my Ph.D. in Mechanics from SCUT in 2023 and was a visiting Ph.D. student at Swansea University (2021.11-2022.11), co-supervised by **Prof. Mokarram Hossain**.
 
 ## Latest publication
 
