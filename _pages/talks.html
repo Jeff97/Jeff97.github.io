@@ -5,12 +5,68 @@ permalink: /talks/
 author_profile: true
 ---
 
-{% if site.talkmap_link == true %}
+{% include base_path %}
 
-<p style="text-decoration:underline;"><a href="/talkmap.html">View talk map</a></p>
+<style>
+.talks-page { --talks-accent: #0f4d84; --talks-line: #c4d1e0; line-height: 1.7; overflow-wrap: anywhere; }
+.talks-page .talks-section-title { display: flex; align-items: center; gap: 0.75rem; margin: 2rem 0 1rem; padding: 0; border: 0; font-size: 1.15rem; line-height: 1.4; }
+.talks-page .talks-section-title span { padding: 0.4rem 0.8rem; border-radius: 0.35rem; background: linear-gradient(120deg, #0f4d84, #17619f); color: #fff; }
+.talks-page .talks-section-title::after { content: ""; flex: 1; min-width: 1rem; border-bottom: 2px solid #2a679f; opacity: 0.72; }
+.talks-page .talks-timeline { list-style: none; margin: 0 0 0 0.35rem; padding: 0 0 0 1.25rem; border-left: 2px solid var(--talks-line); }
+.talks-page .talk-entry { position: relative; margin: 0 0 1.25rem; padding: 0 0 1.25rem; border-bottom: 1px solid var(--talks-line); }
+.talks-page .talk-entry:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+.talks-page .talk-entry::before { content: ""; position: absolute; top: 0.65rem; left: -1.6rem; width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--talks-accent); box-shadow: 0 0 0 3px #e8f2ff; }
+.talks-page .talk-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 0.4rem 0.75rem; margin-bottom: 0.5rem; font-size: 0.8rem; }
+.talks-page .talk-meta time { color: #4b5968; font-variant-numeric: tabular-nums; }
+.talks-page .talk-type { padding: 0.15rem 0.55rem; border: 1px solid var(--talks-line); border-radius: 0.3rem; background: #f7fbff; color: var(--talks-accent); }
+.talks-page .talk-title { margin: 0 0 0.45rem; font-size: 1.05rem; line-height: 1.5; }
+.talks-page .talk-title a { text-decoration: none; }
+.talks-page a:hover, .talks-page a:focus { text-decoration: underline; }
+.talks-page .talk-venue { margin: 0.25rem 0; }
+.talks-page .talk-location { color: #4b5968; font-size: 0.9em; }
+.talks-page .talk-excerpt { font-size: 0.9em; }
+.talks-page .talk-excerpt p { margin: 0.45rem 0; }
+.talks-page .talk-links { margin: 0.5rem 0 0; font-size: 0.85em; }
+.talks-page .talk-map-link { display: inline-block; padding: 0.35rem 0.75rem; border: 1px solid var(--talks-line); border-radius: 0.35rem; background: #f7fbff; }
+@media (max-width: 600px) {
+  .talks-page .talks-section-title { gap: 0.5rem; font-size: 1rem; }
+  .talks-page .talk-title { font-size: 1rem; }
+  .talks-page .talks-timeline { padding-left: 1rem; }
+  .talks-page .talk-entry::before { left: -1.35rem; }
+}
+@media print {
+  .talks-page .talks-section-title { break-after: avoid; }
+  .talks-page .talk-entry { break-inside: avoid; }
+}
+</style>
 
-{% endif %}
+<div class="talks-page">
+  {% if site.talkmap_link == true %}
+  <p><a class="talk-map-link" href="{{ base_path }}/talkmap.html">View talk map</a></p>
+  {% endif %}
 
-{% for post in site.talks reversed %}
-  {% include archive-single-talk.html %}
-{% endfor %}
+  {% assign sorted_talks = site.talks | sort: 'date' | reverse %}
+  {% assign talk_years = sorted_talks | group_by_exp: 'talk', "talk.date | date: '%Y'" %}
+  {% for year in talk_years %}
+  <section aria-labelledby="talks-{{ year.name }}">
+    <h2 class="talks-section-title" id="talks-{{ year.name }}"><span>{{ year.name }}</span></h2>
+    <ol class="talks-timeline">
+      {% for post in year.items %}
+      <li class="talk-entry">
+        <article>
+          <div class="talk-meta">
+            <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%B %d, %Y' }}</time>
+            {% assign presentation_type = post.talk_type | default: post.type %}
+            {% if presentation_type %}<span class="talk-type">{{ presentation_type | escape }}</span>{% endif %}
+          </div>
+          <h3 class="talk-title"><a href="{% if post.link %}{{ post.link }}{% else %}{{ base_path }}{{ post.url }}{% endif %}">{{ post.title | escape }}</a></h3>
+          {% if post.venue %}<p class="talk-venue"><strong>{{ post.venue | escape }}</strong>{% if post.location %}<br><span class="talk-location">{{ post.location | escape }}</span>{% endif %}</p>{% endif %}
+          {% if post.excerpt %}<div class="talk-excerpt">{{ post.excerpt | markdownify }}</div>{% endif %}
+          {% if post.link %}<p class="talk-links"><a href="{{ base_path }}{{ post.url }}">Details</a></p>{% endif %}
+        </article>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+  {% endfor %}
+</div>

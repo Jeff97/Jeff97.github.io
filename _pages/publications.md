@@ -24,10 +24,53 @@ author_profile: true
   .publications-page .publication-section-title { gap: 0.5rem; font-size: 1rem; }
   .publications-page .publication-section-title span { max-width: calc(100% - 1.5rem); }
 }
+/* Cover-inspired colors and motifs; self-contained, without external image requests. */
+.publications-page .journal-overview { margin: 1.25rem 0 1.5rem; padding: 1.1rem; border: 1px solid #d6dfe8; border-radius: 14px; background: #f7f9fc; color: #192e43; }
+.publications-page .journal-overview-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.3rem 1rem; }
+.publications-page .journal-overview h2 { margin: 0; padding: 0; border: 0; font-size: 1.05rem; color: #192e43; }
+.publications-page .journal-total { font-size: 0.8rem; color: #56677b; }
+.publications-page .journal-hint { margin: 0.35rem 0 0.9rem; font-size: 0.75rem; color: #56677b; }
+.publications-page .journal-treemap { position: relative; width: 100%; height: 360px; overflow: hidden; border-radius: 9px; background: #fff; }
+.publications-page .journal-tile { position: absolute; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; gap: 2px; margin: 0; padding: 12px; border: 2px solid #f7f9fc; border-radius: 7px; background: var(--journal-color); color: var(--journal-ink, #fff); font-family: inherit; text-align: left; cursor: pointer; overflow: hidden; isolation: isolate; transition: filter 160ms ease; }
+.publications-page .journal-tile::before { content: ""; position: absolute; z-index: -1; inset: 0; opacity: 0.2; background: repeating-radial-gradient(ellipse at 110% 0%, transparent 0 16px, currentColor 17px 18px, transparent 19px 30px); }
+.publications-page .journal-tile[data-motif="mesh"]::before { background: repeating-linear-gradient(35deg, transparent 0 19px, currentColor 20px 21px), repeating-linear-gradient(125deg, transparent 0 19px, currentColor 20px 21px); }
+.publications-page .journal-tile[data-motif="frame"]::before { inset: 15% 10% 30% 35%; border: 3px solid currentColor; background: none; transform: rotate(-12deg); }
+.publications-page .journal-tile[data-motif="dots"]::before { background: radial-gradient(currentColor 1px, transparent 2px) 0 0 / 9px 9px; }
+.publications-page .journal-tile[data-motif="bands"]::before { background: repeating-linear-gradient(135deg, transparent 0 30px, currentColor 31px 47px, transparent 48px 65px); }
+.publications-page .journal-tile:hover, .publications-page .journal-tile[data-active="true"] { filter: brightness(1.12); box-shadow: inset 0 0 0 2px currentColor; }
+.publications-page .journal-tile:focus-visible { outline: 3px solid #fff; outline-offset: -7px; box-shadow: inset 0 0 0 4px #182b42; }
+.publications-page .journal-abbr { font-size: var(--journal-label-size, 20px); font-weight: 800; letter-spacing: 0.02em; line-height: 1.2; white-space: nowrap; }
+.publications-page .journal-quantity { font-size: 12px; line-height: 1.3; }
+.publications-page .journal-detail { margin-top: 0.8rem; padding-left: 0.75rem; border-left: 3px solid var(--detail-color, #9aafc5); min-height: 4.5rem; }
+.publications-page .journal-detail-name, .publications-page .journal-detail-count { display: block; }
+.publications-page .journal-detail-name { font-size: 0.85rem; line-height: 1.5; }
+.publications-page .journal-detail-count { margin-top: 0.2rem; font-size: 0.75rem; color: #56677b; }
+@media (max-width: 600px) {
+  .publications-page .journal-overview { padding: 0.65rem; }
+  .publications-page .journal-treemap { height: 430px; }
+  .publications-page .journal-tile { padding: 8px; }
+  .publications-page .journal-detail { min-height: 6rem; }
+}
+@media (prefers-reduced-motion: reduce) { .publications-page .journal-tile { transition: none; } }
+
 </style>
 
 <div class="publications-page">
 <p>18 peer-reviewed journal articles. Publications are listed in reverse chronological order within each category.</p>
+
+<section class="journal-overview" id="journal-overview" aria-labelledby="journal-overview-title" hidden>
+  <div class="journal-overview-heading">
+    <h2 id="journal-overview-title">Publications by journal</h2>
+    <span class="journal-total"></span>
+  </div>
+  <p class="journal-hint">Area represents article count. Hover, tap or focus a journal to explore.</p>
+  <div class="journal-treemap" role="group" aria-label="Journal publication counts"></div>
+  <div class="journal-detail" role="status" aria-live="polite" aria-atomic="true">
+    <strong class="journal-detail-name">Explore the journals</strong>
+    <span class="journal-detail-count">Select a block to see its full name and article count.</span>
+  </div>
+</section>
+
 {% if site.author.googlescholar %}
 <p>See also my <a href="{{ site.author.googlescholar }}">Google Scholar profile</a>.</p>
 {% endif %}
@@ -152,3 +195,106 @@ author_profile: true
 </ol>
 
 </div>
+
+<script>
+(function () {
+  'use strict';
+  const root = document.getElementById('journal-overview');
+  if (!root) return;
+  // Palette references: Elsevier cover thumbnails (X + journal ISSN),
+  // Springer 10338 and Oxidation of Metals 94(1), and the SAGE MMS cover.
+  // Visual references (accessed 2026-09-08):
+  // https://kl-seo.klxksci.com/e3/923360aec103ccdd290712b5015901.jpg
+  // https://neper.info/imgs/imgs/cover-ijss-2020.png
+  // https://ars.els-cdn.com/content/image/X00207403.jpg
+  // https://www.peipusci.com/news/2185.html (IJES)
+  // https://www.peipusci.com/news/573.html (TWS)
+  // https://www.peipusci.com/news/1170.html (AMM)
+  // https://ars.els-cdn.com/content/image/X00457825.jpg
+  // https://media.springernature.com/w153/springer-static/cover/journal/10338.jpg
+  // https://media.springernature.com/w306/springer-static/cover-hires/journal/11085/94/1
+  // https://kl-seo.klxksci.com/e8/b4103b5db990ead678014b13d394a1.png
+  // Motifs are CSS interpretations, not reproductions of cover artwork.
+  const styles = {
+    'Journal of the Mechanics and Physics of Solids': ['JMPS', '#b8c9d5', 'waves', '#162a3b'],
+    'International Journal of Solids and Structures': ['IJSS', '#293f7a', 'mesh'],
+    'International Journal of Engineering Science': ['IJES', '#922953', 'waves'],
+    'Thin-Walled Structures': ['TWS', '#23577e', 'frame'],
+    'International Journal of Mechanical Sciences': ['IJMS', '#c8edf7', 'mesh', '#163340'],
+    'Computer Methods in Applied Mechanics and Engineering': ['CMAME', '#203f80', 'mesh'],
+    'Applied Mathematical Modelling': ['AMM', '#edc94d', 'dots', '#332b0c'],
+    'Mathematics and Mechanics of Solids': ['MMS', '#243778', 'bands'],
+    'Acta Mechanica Solida Sinica': ['AMSS', '#313b97', 'waves'],
+    'Oxidation of Metals': ['OM', '#ba391e', 'dots']
+  };
+  const counts = new Map();
+  document.querySelectorAll('.publications-page .publication-venue em').forEach(function (venue) {
+    const name = venue.textContent.trim();
+    counts.set(name, (counts.get(name) || 0) + 1);
+  });
+  const journals = Array.from(counts, function ([name, count]) {
+    const style = styles[name] || [name.split(/\s+/).map(word => word[0]).join(''), '#425c73', 'mesh'];
+    return { name, count, abbr: style[0], color: style[1], motif: style[2], ink: style[3] || '#fff' };
+  }).sort((a, b) => b.count - a.count || a.abbr.localeCompare(b.abbr));
+  if (!journals.length) return;
+  const total = journals.reduce((sum, journal) => sum + journal.count, 0);
+  const map = root.querySelector('.journal-treemap');
+  const detail = root.querySelector('.journal-detail');
+  root.querySelector('.journal-total').textContent = journals.length + ' journals · ' + total + ' articles';
+  function show(journal) {
+    journals.forEach(item => item.button.dataset.active = String(item === journal));
+    detail.style.setProperty('--detail-color', journal.color);
+    detail.querySelector('.journal-detail-name').textContent = journal.name;
+    detail.querySelector('.journal-detail-count').textContent = journal.count + (journal.count === 1 ? ' article' : ' articles') + ' · ' + (journal.count / total * 100).toFixed(1) + '% of publications';
+  }
+  journals.forEach(function (journal) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'journal-tile';
+    button.dataset.motif = journal.motif;
+    button.dataset.count = journal.count;
+    button.setAttribute('aria-label', journal.name + ': ' + journal.count + (journal.count === 1 ? ' article' : ' articles'));
+    button.style.setProperty('--journal-color', journal.color);
+    button.style.setProperty('--journal-ink', journal.ink);
+    const abbr = document.createElement('span');
+    abbr.className = 'journal-abbr';
+    abbr.textContent = journal.abbr;
+    const quantity = document.createElement('span');
+    quantity.className = 'journal-quantity';
+    quantity.textContent = journal.count + (journal.count === 1 ? ' article' : ' articles');
+    button.append(abbr, quantity);
+    ['pointerenter', 'focus', 'click'].forEach(event => button.addEventListener(event, () => show(journal)));
+    journal.button = button;
+    map.append(button);
+  });
+  // Recursively split along the longer side. Every cell's area is count / total.
+  function layout(items, x, y, width, height) {
+    if (items.length === 1) {
+      const journal = items[0];
+      Object.assign(journal.button.style, { left: x + 'px', top: y + 'px', width: width + 'px', height: height + 'px' });
+      const labelSize = Math.max(12, Math.min(32, (width - 24) / (journal.abbr.length * 0.75), height / 3));
+      journal.button.style.setProperty('--journal-label-size', labelSize + 'px');
+      journal.button.querySelector('.journal-quantity').textContent = width < 76 ? String(journal.count) : journal.count + (journal.count === 1 ? ' article' : ' articles');
+      return;
+    }
+    const sum = items.reduce((s, item) => s + item.count, 0);
+    let split = 1, cumulative = items[0].count;
+    while (split < items.length - 1 && Math.abs(cumulative + items[split].count - sum / 2) < Math.abs(cumulative - sum / 2)) {
+      cumulative += items[split++].count;
+    }
+    const ratio = cumulative / sum;
+    if (width >= height) {
+      layout(items.slice(0, split), x, y, width * ratio, height);
+      layout(items.slice(split), x + width * ratio, y, width * (1 - ratio), height);
+    } else {
+      layout(items.slice(0, split), x, y, width, height * ratio);
+      layout(items.slice(split), x, y + height * ratio, width, height * (1 - ratio));
+    }
+  }
+  root.hidden = false;
+  function redraw() { layout(journals, 0, 0, map.clientWidth, map.clientHeight); }
+  redraw();
+  if (window.ResizeObserver) new ResizeObserver(redraw).observe(map);
+  else window.addEventListener('resize', redraw);
+}());
+</script>
