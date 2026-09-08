@@ -3,6 +3,10 @@ title: "Photos"
 permalink: /photos/
 author_profile: true
 gallery_2026:
+  - url: /photos/20260824-Tianjin-Talk.jpg
+    image_path: /photos/20260824-Tianjin-Talk.jpg
+    alt: "Oral presentation at the 2026 Conference of Chinese Solid Mechanics in Tianjin"
+    title: "2026 Conference of Chinese Solid Mechanics, Tianjin (2026-08-24)"
   - url: /photos/20260720-ECCOMAS-Talk.jpg
     image_path: /photos/20260720-ECCOMAS-Talk.jpg
     alt: "Oral presentation at WCCM-ECCOMAS 2026"
