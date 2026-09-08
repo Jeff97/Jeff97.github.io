@@ -83,6 +83,19 @@ a:hover {
   a {
     color: #36516a;
   }
+
+  .author__employer {
+    white-space: normal;
+    line-height: 1.5;
+
+    @media screen and (min-width: 1024px) {
+      display: flex;
+      align-items: baseline;
+    }
+
+    i { flex-shrink: 0; }
+    span { min-width: 0; overflow-wrap: break-word; }
+  }
 }
 
 .page__title {

@@ -1,5 +1,5 @@
 ---
-title: "Photos"
+title: "Albums"
 permalink: /photos/
 author_profile: true
 gallery_2026:

@@ -2,6 +2,7 @@
 permalink: /
 title: "Zhanfeng Li (李展锋)"
 seo_title: "Zhanfeng Li (李展锋) | South China University of Technology"
+hide_page_title: true
 description: "Zhanfeng Li (李展锋), Assistant Researcher and Postdoctoral Fellow at South China University of Technology (华南理工大学). Research in soft matter mechanics, growth, and shape control."
 author_profile: true
 redirect_from:
