@@ -27,8 +27,9 @@ author_profile: true
 .talks-page .talk-excerpt { font-size: 0.9em; }
 .talks-page .talk-excerpt p { margin: 0.45rem 0; }
 .talks-page .talk-links { margin: 0.5rem 0 0; font-size: 0.85em; }
-.talks-page .talk-map-link { display: inline-block; padding: 0.35rem 0.75rem; border: 1px solid var(--talks-line); border-radius: 0.35rem; background: #f7fbff; }
+.talks-page .talk-map { display: block; box-sizing: border-box; width: 100%; height: 480px; border: 1px solid var(--talks-line); border-radius: 0.5rem; background: #f7fbff; }
 @media (max-width: 600px) {
+  .talks-page .talk-map { height: 360px; }
   .talks-page .talks-section-title { gap: 0.5rem; font-size: 1rem; }
   .talks-page .talk-title { font-size: 1rem; }
   .talks-page .talks-timeline { padding-left: 1rem; }
@@ -41,9 +42,10 @@ author_profile: true
 </style>
 
 <div class="talks-page">
-  {% if site.talkmap_link == true %}
-  <p><a class="talk-map-link" href="{{ base_path }}/talkmap.html">View talk map</a></p>
-  {% endif %}
+  <section aria-labelledby="talk-map-title">
+    <h2 class="talks-section-title" id="talk-map-title"><span>Talk map</span></h2>
+    <iframe class="talk-map" src="{{ base_path }}/talkmap/map.html" title="Map of conference and presentation locations"></iframe>
+  </section>
 
   {% assign sorted_talks = site.talks | sort: 'date' | reverse %}
   {% assign talk_years = sorted_talks | group_by_exp: 'talk', "talk.date | date: '%Y'" %}

@@ -7,7 +7,7 @@ html {
 body {
   color: #253346;
   background: #fbfcfe;
-  font-family: "Inter", "Aptos", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: $global-font-family;
   font-size: 17px;
   line-height: 1.75;
 }
@@ -41,7 +41,7 @@ a:hover {
 
   &--lg a {
     color: #102c43;
-    font-family: Georgia, "Noto Serif SC", serif;
+    font-family: $serif;
     font-size: 1.15em;
     letter-spacing: 0.01em;
   }
@@ -62,7 +62,7 @@ a:hover {
 
 .author__name {
   color: #132d44;
-  font-family: Georgia, "Noto Serif SC", serif;
+  font-family: $serif;
 }
 
 .author__bio {
@@ -81,10 +81,9 @@ a:hover {
   }
 }
 
-.page__title,
-.archive__item-title {
+.page__title {
   color: #132d44;
-  font-family: Georgia, "Noto Serif SC", "Songti SC", serif;
+  font-family: $serif;
   font-weight: 600;
   letter-spacing: -0.015em;
 }
@@ -94,8 +93,8 @@ a:hover {
     margin-top: 2.5em;
     padding-bottom: 0.48em;
     color: #163c59;
-    font-family: Georgia, "Noto Serif SC", "Songti SC", serif;
-    font-weight: 600;
+    font-family: $header-font-family;
+    font-weight: 700;
     border-bottom: 1px solid #dce6ef;
   }
 
@@ -139,7 +138,7 @@ a:hover {
   max-width: 43rem;
   margin: 0 !important;
   color: #1d354a !important;
-  font-family: Georgia, "Noto Serif SC", "Songti SC", serif;
+  font-family: $serif;
   font-size: 1.32em !important;
   line-height: 1.55;
 }
@@ -344,7 +343,8 @@ a:hover {
   }
 
   .featured-paper,
-  .research-card {
+  .research-card,
+  .research-card:nth-child(even) {
     grid-template-columns: 1fr;
   }
 

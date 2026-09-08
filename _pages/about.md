@@ -2,9 +2,27 @@
 permalink: /
 title: "Zhanfeng Li"
 author_profile: true
-redirect_from: 
+redirect_from:
   - /about/
   - /about.html
+latest_publication_doi: "10.1016/j.ijmecsci.2026.111329"
+latest_publication_image: "/images/IJMS-2026-experimental-results.png"
+research_highlights:
+  - title: "Analytical mechanics of growing plates and shells"
+    doi: "10.1016/j.ijmecsci.2026.111329"
+    image: "/images/IJMS-2026-experimental-results.png"
+    alt: "Experimental validation of shape control for hyperelastic plates"
+    summary: "We derive reduced theories and closed-form results for growth-induced bending, buckling, and post-buckling, revealing the mechanics behind instability and pattern formation."
+  - title: "Stress-free shape programming"
+    doi: "10.1016/j.ijengsci.2025.104266"
+    image: "/images/ShapeControl.jpg"
+    alt: "Stress-free growth-based shape programming"
+    summary: "We establish analytical mappings between growth tensors and target geometries, enabling conformal mappings and general shape transformations in thin hyperelastic structures."
+  - title: "Multiphysics computational modelling"
+    doi: "10.1016/j.jmps.2025.106089"
+    image: "/images/Volvox.png"
+    alt: "Numerical simulation of multifield coupled growth deformation"
+    summary: "Mixed finite-element frameworks and ABAQUS subroutines support simulations of electro-mechanical and magneto-mechanical growth, from surface patterns to biological morphogenesis."
 ---
 
 <section class="academic-intro">
@@ -31,37 +49,36 @@ I am an **Assistant Researcher (Postdoctoral Fellow)** at the School of Civil En
     <p class="featured-paper__summary">This work derives explicit analytical relations between body forces, growth fields, and target geometry, and validates the resulting inverse-design framework with finite-element simulations and silicone-plate experiments.</p>
     <div class="featured-paper__actions">
       <a class="academic-button" href="/files/papers/Li-2026-Growth-based-shape-control-IJMS.pdf">Read the paper (PDF)</a>
-      <a class="academic-button academic-button--quiet" href="https://doi.org/10.1016/j.ijmecsci.2026.111329">View DOI</a>
+      <a class="academic-button academic-button--quiet" href="https://doi.org/{{ page.latest_publication_doi }}">View DOI</a>
     </div>
   </div>
   <figure>
-    <img src="/images/IJMS-2026-experimental-results.png" alt="Experimental validation of growth-based shape control under self-weight">
+    <img src="{{ page.latest_publication_image }}" alt="Experimental validation of growth-based shape control under self-weight">
     <figcaption>Experimental validation: fabricated silicone plates, gravity-driven deformation, and agreement with target shapes and simulations.</figcaption>
   </figure>
 </section>
 
+{% capture research_highlights %}
+{% for highlight in page.research_highlights %}
+  {% assign duplicates_latest = false %}
+  {% if highlight.doi and highlight.doi == page.latest_publication_doi %}{% assign duplicates_latest = true %}{% endif %}
+  {% if highlight.image and highlight.image == page.latest_publication_image %}{% assign duplicates_latest = true %}{% endif %}
+  {% unless duplicates_latest %}
+  <article class="research-card">
+    <div>
+      <h3>{{ highlight.title | escape }}</h3>
+      <p>{{ highlight.summary | escape }}</p>
+    </div>
+    <img src="{{ highlight.image }}" alt="{{ highlight.alt | escape }}">
+  </article>
+  {% endunless %}
+{% endfor %}
+{% endcapture %}
+{% assign research_highlights = research_highlights | strip %}
+{% if research_highlights != empty %}
 ## Research highlights
 
 <section class="research-grid">
-  <article class="research-card">
-    <div>
-      <h3>Analytical mechanics of growing plates and shells</h3>
-      <p>We derive reduced theories and closed-form results for growth-induced bending, buckling, and post-buckling, revealing the mechanics behind instability and pattern formation.</p>
-    </div>
-    <img src="/images/IJMS-2026-experimental-results.png" alt="Experimental validation of shape control for hyperelastic plates">
-  </article>
-  <article class="research-card">
-    <img src="/images/ShapeControl.jpg" alt="Stress-free growth-based shape programming">
-    <div>
-      <h3>Stress-free shape programming</h3>
-      <p>We establish analytical mappings between growth tensors and target geometries, enabling conformal mappings and general shape transformations in thin hyperelastic structures.</p>
-    </div>
-  </article>
-  <article class="research-card">
-    <img src="/images/Volvox.png" alt="Numerical simulation of multifield coupled growth deformation">
-    <div>
-      <h3>Multiphysics computational modelling</h3>
-      <p>Mixed finite-element frameworks and ABAQUS subroutines support simulations of electro-mechanical and magneto-mechanical growth, from surface patterns to biological morphogenesis.</p>
-    </div>
-  </article>
+{{ research_highlights }}
 </section>
+{% endif %}
