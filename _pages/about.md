@@ -26,9 +26,19 @@ research_highlights:
 
 ---
 
-<section class="academic-intro">
+<section class="academic-intro academic-intro--located">
+  <div class="academic-location" aria-label="Office location: 华南理工大学交通大楼，广东省广州市天河区。地图标记为校区南侧附近的示意位置。">
+    <div class="academic-location__map" style="background-image: url('{{ "/images/scut-wushan-map.svg" | relative_url }}');" aria-hidden="true"></div>
+    <a class="academic-location__pin" href="https://uri.amap.com/search?keyword=华南理工大学交通大楼&amp;city=广州" target="_blank" rel="noopener noreferrer" aria-label="在高德地图查找华南理工大学交通大楼（新窗口）">
+      <span class="academic-location__dot" aria-hidden="true"></span>
+      <span class="academic-location__label"><strong>SCUT · Guangzhou <span aria-hidden="true">↗</span></strong><span lang="zh-CN">五山校区 · 交通大楼</span><small>Campus vicinity</small></span>
+    </a>
+    <a class="academic-location__credit" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap</a>
+  </div>
+  <div class="academic-intro__copy">
   <p class="academic-eyebrow">Postdoctoral Fellow · South China University of Technology</p>
   <p class="academic-lead">I study how soft materials grow, deform, and acquire prescribed shapes - connecting nonlinear mechanics, analytical modelling, and computational design.</p>
+  </div>
   <div class="academic-tags">
     <span>Soft Matter Mechanics</span>
     <span>Growth &amp; Morphing</span>
