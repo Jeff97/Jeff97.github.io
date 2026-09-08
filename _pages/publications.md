@@ -29,8 +29,7 @@ author_profile: true
 .publications-page .journal-overview-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.3rem 1rem; }
 .publications-page .journal-overview h2 { margin: 0; padding: 0; border: 0; font-size: 1.05rem; color: #192e43; }
 .publications-page .journal-total { font-size: 0.8rem; color: #56677b; }
-.publications-page .journal-hint { margin: 0.35rem 0 0.9rem; font-size: 0.75rem; color: #56677b; }
-.publications-page .journal-treemap { position: relative; width: 100%; height: 360px; overflow: hidden; border-radius: 9px; background: #fff; }
+.publications-page .journal-treemap { margin-top: 0.9rem; position: relative; width: 100%; height: 360px; overflow: hidden; border-radius: 9px; background: #fff; }
 .publications-page .journal-tile { position: absolute; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; gap: 2px; margin: 0; padding: 12px; border: 2px solid #f7f9fc; border-radius: 7px; background: var(--journal-color); color: var(--journal-ink, #fff); font-family: inherit; text-align: left; cursor: pointer; overflow: hidden; isolation: isolate; transition: filter 160ms ease; }
 .publications-page .journal-tile::before { content: ""; position: absolute; z-index: -1; inset: 0; opacity: 0.2; background: repeating-radial-gradient(ellipse at 110% 0%, transparent 0 16px, currentColor 17px 18px, transparent 19px 30px); }
 .publications-page .journal-tile[data-motif="mesh"]::before { background: repeating-linear-gradient(35deg, transparent 0 19px, currentColor 20px 21px), repeating-linear-gradient(125deg, transparent 0 19px, currentColor 20px 21px); }
@@ -41,6 +40,7 @@ author_profile: true
 .publications-page .journal-tile:focus-visible { outline: 3px solid #fff; outline-offset: -7px; box-shadow: inset 0 0 0 4px #182b42; }
 .publications-page .journal-abbr { font-size: var(--journal-label-size, 20px); font-weight: 800; letter-spacing: 0.02em; line-height: 1.2; white-space: nowrap; }
 .publications-page .journal-quantity { font-size: 12px; line-height: 1.3; }
+.publications-page .journal-detail[hidden] { display: none; }
 .publications-page .journal-detail { margin-top: 0.8rem; padding-left: 0.75rem; border-left: 3px solid var(--detail-color, #9aafc5); min-height: 4.5rem; }
 .publications-page .journal-detail-name, .publications-page .journal-detail-count { display: block; }
 .publications-page .journal-detail-name { font-size: 0.85rem; line-height: 1.5; }
@@ -63,11 +63,10 @@ author_profile: true
     <h2 id="journal-overview-title">Publications by journal</h2>
     <span class="journal-total"></span>
   </div>
-  <p class="journal-hint">Area represents article count. Hover, tap or focus a journal to explore.</p>
   <div class="journal-treemap" role="group" aria-label="Journal publication counts"></div>
-  <div class="journal-detail" role="status" aria-live="polite" aria-atomic="true">
-    <strong class="journal-detail-name">Explore the journals</strong>
-    <span class="journal-detail-count">Select a block to see its full name and article count.</span>
+  <div class="journal-detail" hidden role="status" aria-live="polite" aria-atomic="true">
+    <strong class="journal-detail-name"></strong>
+    <span class="journal-detail-count"></span>
   </div>
 </section>
 
@@ -201,20 +200,6 @@ author_profile: true
   'use strict';
   const root = document.getElementById('journal-overview');
   if (!root) return;
-  // Palette references: Elsevier cover thumbnails (X + journal ISSN),
-  // Springer 10338 and Oxidation of Metals 94(1), and the SAGE MMS cover.
-  // Visual references (accessed 2026-09-08):
-  // https://kl-seo.klxksci.com/e3/923360aec103ccdd290712b5015901.jpg
-  // https://neper.info/imgs/imgs/cover-ijss-2020.png
-  // https://ars.els-cdn.com/content/image/X00207403.jpg
-  // https://www.peipusci.com/news/2185.html (IJES)
-  // https://www.peipusci.com/news/573.html (TWS)
-  // https://www.peipusci.com/news/1170.html (AMM)
-  // https://ars.els-cdn.com/content/image/X00457825.jpg
-  // https://media.springernature.com/w153/springer-static/cover/journal/10338.jpg
-  // https://media.springernature.com/w306/springer-static/cover-hires/journal/11085/94/1
-  // https://kl-seo.klxksci.com/e8/b4103b5db990ead678014b13d394a1.png
-  // Motifs are CSS interpretations, not reproductions of cover artwork.
   const styles = {
     'Journal of the Mechanics and Physics of Solids': ['JMPS', '#b8c9d5', 'waves', '#162a3b'],
     'International Journal of Solids and Structures': ['IJSS', '#293f7a', 'mesh'],
@@ -242,6 +227,7 @@ author_profile: true
   const detail = root.querySelector('.journal-detail');
   root.querySelector('.journal-total').textContent = journals.length + ' journals · ' + total + ' articles';
   function show(journal) {
+    detail.hidden = false;
     journals.forEach(item => item.button.dataset.active = String(item === journal));
     detail.style.setProperty('--detail-color', journal.color);
     detail.querySelector('.journal-detail-name').textContent = journal.name;
@@ -267,7 +253,6 @@ author_profile: true
     journal.button = button;
     map.append(button);
   });
-  // Recursively split along the longer side. Every cell's area is count / total.
   function layout(items, x, y, width, height) {
     if (items.length === 1) {
       const journal = items[0];
