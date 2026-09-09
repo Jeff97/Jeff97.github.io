@@ -175,73 +175,80 @@ a:hover {
   box-shadow: 0 14px 34px rgba(26, 62, 88, 0.07);
 }
 
-// Keep the map and its caption in separate rows so labels remain readable.
 .academic-intro--located {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 1.35rem 1.5rem;
-  align-items: center;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
 
-  .academic-intro__copy { grid-column: 1; grid-row: 1; min-width: 0; }
-  .academic-tags { grid-column: 1 / -1; margin-top: 0; }
+  .academic-intro__copy {
+    position: relative;
+    z-index: 1;
+    width: calc(100% - 300px);
+    min-height: 210px;
+  }
+
+  .academic-tags { position: relative; z-index: 1; }
 }
 
 .academic-location {
-  grid-column: 2;
-  grid-row: 1;
-  min-width: 0;
-  overflow: hidden;
-  border: 1px solid #d2e3e9;
-  border-radius: 12px;
-  background: #fff;
-}
-
-.academic-location__map {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 340px;
+  height: 100%;
   display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 5 / 4;
-  object-fit: cover;
-  // Retain the southern campus, the red building label, and nearby roads.
-  object-position: center bottom;
-  border-radius: 0 !important;
-}
-
-.academic-location__pin {
-  display: block;
-  color: #24536a !important;
-  text-decoration: none !important;
-  border-top: 1px solid #d2e3e9;
+  cursor: pointer;
 
   &:focus-visible {
     outline: 3px solid #087f99;
     outline-offset: -3px;
   }
-
-  &:hover { background: #eaf4f8; }
 }
 
-.academic-location__label {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 10px 14px;
-  font-size: 14px;
-  line-height: 1.4;
-
-  strong { font-weight: 700; }
+.academic-location__map {
+  position: absolute;
+  inset: 0;
+  // Preserve the full image width and place the building label away from the edges.
+  background-size: 100% auto;
+  background-position: center 65%;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 38%), linear-gradient(to bottom, #000 75%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 38%), linear-gradient(to bottom, #000 75%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
 }
 
 @media (max-width: 1100px) {
   .academic-intro--located {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    .academic-intro__copy { width: 100%; min-height: 0; }
+    .academic-tags { margin-top: 0; }
   }
 
   .academic-intro__copy { order: 0; }
-  .academic-location { order: 1; width: 100%; max-width: 480px; align-self: center; }
+  .academic-location {
+    position: relative;
+    order: 1;
+    width: calc(100% + 4.7rem);
+    height: 240px;
+    margin: 1rem -2.35rem 1.5rem;
+  }
   .academic-intro--located .academic-tags { order: 2; }
+  .academic-location__map {
+    background-position: center 75%;
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 20%, #000 85%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, #000 20%, #000 85%, transparent);
+  }
+}
+
+@media (max-width: 768px) {
+  .academic-location {
+    width: calc(100% + 2.7rem);
+    margin-left: -1.35rem;
+    margin-right: -1.35rem;
+  }
 }
 
 .academic-eyebrow,
