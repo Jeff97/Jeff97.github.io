@@ -75,7 +75,7 @@ redirect_from:
 * Mixed Finite Element Methods
 * ABAQUS Subroutine Development
 
-<h2 class="cv-section-title"><span>Research Projects</span></h2>
+<h2 class="cv-section-title"><span>Research Projects as Principal Investigator</span></h2>
 
 * National Natural Science Foundation of China (NSFC), Young Scientists Fund, Project No. **12602100**, ongoing.
 * China Postdoctoral Science Foundation, General Program, Project No. **2025M771845**, ongoing.
