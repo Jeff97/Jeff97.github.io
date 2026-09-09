@@ -130,6 +130,40 @@ a:hover {
   }
 }
 
+.page__content h2.home-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 2rem 0 1rem;
+  padding: 0;
+  border: 0;
+  font-size: 1.15rem;
+  line-height: 1.4;
+
+  span {
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.35rem;
+    background: linear-gradient(120deg, #0f4d84, #17619f);
+    color: #fff;
+  }
+
+  &::after {
+    content: "";
+    flex: 1;
+    min-width: 1rem;
+    border-bottom: 2px solid #2a679f;
+    opacity: 0.72;
+  }
+
+  @media (max-width: 600px) {
+    gap: 0.5rem;
+    font-size: 1rem;
+    span { max-width: calc(100% - 1.5rem); }
+  }
+
+  @media print { break-after: avoid; }
+}
+
 .academic-intro {
   margin: 0.25em 0 2.3em;
   padding: 2.25rem 2.35rem 2rem;
@@ -141,116 +175,73 @@ a:hover {
   box-shadow: 0 14px 34px rgba(26, 62, 88, 0.07);
 }
 
+// Keep the map and its caption in separate rows so labels remain readable.
 .academic-intro--located {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 1.35rem 1.5rem;
+  align-items: center;
 
-  .academic-intro__copy {
-    position: relative;
-    z-index: 1;
-    width: calc(100% - 260px);
-    min-height: 210px;
-  }
-
-  .academic-tags {
-    position: relative;
-    z-index: 1;
-  }
+  .academic-intro__copy { grid-column: 1; grid-row: 1; min-width: 0; }
+  .academic-tags { grid-column: 1 / -1; margin-top: 0; }
 }
 
 .academic-location {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 340px;
-  height: 100%;
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #d2e3e9;
+  border-radius: 12px;
+  background: #fff;
 }
 
 .academic-location__map {
-  position: absolute;
-  inset: 0;
-  // Match the projected building anchor in render-campus-map.py.
-  // Cover + the same percentage anchor keep the pin aligned at every aspect ratio.
-  background-position: 62% 43%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: 0.9;
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 45%);
-  mask-image: linear-gradient(to right, transparent, #000 45%);
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+  // Retain the southern campus, the red building label, and nearby roads.
+  object-position: center bottom;
+  border-radius: 0 !important;
 }
 
 .academic-location__pin {
-  position: absolute;
-  top: calc(43% - 9px);
-  left: 62%;
-  width: max-content;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
+  display: block;
   color: #24536a !important;
   text-decoration: none !important;
-  border-radius: 12px;
+  border-top: 1px solid #d2e3e9;
 
   &:focus-visible {
     outline: 3px solid #087f99;
-    outline-offset: 7px;
+    outline-offset: -3px;
   }
 
-  &:hover .academic-location__label {
-    border-color: #6caabb;
-    box-shadow: 0 8px 24px rgba(29, 75, 91, 0.14);
-  }
-}
-
-.academic-location__dot {
-  width: 18px;
-  height: 18px;
-  border: 4px solid #fff;
-  border-radius: 50%;
-  background: #087f99;
-  box-shadow: 0 0 0 9px rgba(8, 127, 153, 0.12), 0 0 0 19px rgba(8, 127, 153, 0.06), 0 3px 8px rgba(29, 75, 91, 0.2);
+  &:hover { background: #eaf4f8; }
 }
 
 .academic-location__label {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  padding: 12px 16px;
-  border: 1px solid #d2e3e9;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 5px 18px rgba(29, 75, 91, 0.08);
+  padding: 10px 14px;
   font-size: 14px;
   line-height: 1.4;
 
   strong { font-weight: 700; }
-  small { color: #5e737d; font-size: 12px; }
 }
 
 @media (max-width: 1100px) {
   .academic-intro--located {
-    .academic-intro__copy { width: 100%; min-height: 0; }
-    .academic-tags { margin-top: 0; }
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  .academic-location {
-    position: relative;
-    width: calc(100% + 4.7rem);
-    height: 200px;
-    margin: 1rem -2.35rem 1.5rem;
-  }
-
-  .academic-intro--located { display: flex; flex-direction: column; }
   .academic-intro__copy { order: 0; }
-  .academic-location { order: 1; }
+  .academic-location { order: 1; width: 100%; max-width: 480px; align-self: center; }
   .academic-intro--located .academic-tags { order: 2; }
-  .academic-location__map {
-    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 25%, #000 80%, transparent);
-    mask-image: linear-gradient(to bottom, transparent, #000 25%, #000 80%, transparent);
-  }
 }
 
 .academic-eyebrow,
@@ -523,12 +514,6 @@ a:hover {
   .academic-intro {
     padding: 1.55rem 1.35rem;
     border-radius: 12px;
-  }
-
-  .academic-location {
-    width: calc(100% + 2.7rem);
-    margin-left: -1.35rem;
-    margin-right: -1.35rem;
   }
 
   .academic-lead {

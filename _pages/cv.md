@@ -77,16 +77,10 @@ redirect_from:
 
 <h2 class="cv-section-title"><span>Research Projects</span></h2>
 
-### Principal Investigator
-
 * National Natural Science Foundation of China (NSFC), Young Scientists Fund, Project No. **12602100**, ongoing.
 * China Postdoctoral Science Foundation, General Program, Project No. **2025M771845**, ongoing.
 * Guangdong Basic and Applied Basic Research Foundation, General Program, Project No. **2025A1515010680**, ongoing.
 * Postdoctoral Innovation Talent Support Program (Grade A), Project No. **BX20240119**, completed.
-
-### Participant
-
-* National Natural Science Foundation of China, General Program, Project No. **11872184**.
 
 <h2 class="cv-section-title"><span>授权发明专利</span></h2>
 
@@ -95,7 +89,7 @@ redirect_from:
 3. 王炯；**李展锋**。基于生长变形的超弹性薄板构型演化控制方法、系统及介质，专利号：ZL 2021 1 1324510.0，授权公告日：2024-11-12。
 4. 王炯；**李展锋**。高铬钢构件高温氧化腐蚀的连续损伤预测方法及系统，专利号：ZL 2020 1 0295195.2，授权公告日：2024-05-28。
 
-<h2 class="cv-section-title"><span>Open Science</span></h2>
+<h2 class="cv-section-title" id="open-science"><span>Open Science</span></h2>
 
 My [GitHub profile](https://github.com/Jeff97) provides open research resources:
 
@@ -104,29 +98,13 @@ My [GitHub profile](https://github.com/Jeff97) provides open research resources:
 
 Together, these resources support verification, reuse and accessible FEM skills development within the computational-mechanics community.
 
+<h2 class="cv-section-title"><span>Supervising and Mentoring</span></h2>
+
+* **Co-supervised undergraduate thesis: Lin Su**, *Numerical Algorithms for Growth and Morphology Control of Soft Materials*, with Yangkun Du of Zhejiang University from 11/2025 to 06/2026.
+
 <h2 class="cv-section-title"><span>Academic Service</span></h2>
 
 * **Peer review:** *Acta Mechanica Solida Sinica*.
 * **Professional membership:** Member of the Chinese Society of Theoretical and Applied Mechanics; Representative member of the Guangdong Society of Mechanics.
-
-<h2 class="cv-section-title"><span>Honors and Awards</span></h2>
-
-* Doctoral National Scholarship, China (2022)
-* SCUT President Scholarship (2022)
-* CSC Scholarship for Joint Ph.D. Training (GBP 15,600, 2021)
-* Outstanding Undergraduate Thesis, SCUT (2019)
-* Excellent Prize, Guangdong Finite Element Modeling Competition (2019)
-* National Encouragement Scholarship, China (2018)
-* First Prize, SCUT Aeromodelling Design Competition (2018)
-* First Prize, SCUT Photography Competition (2018)
-* Excellent Prize, Guangdong Mechanics Competition (2016)
-
-<h2 class="cv-section-title"><span>Skills</span></h2>
-
-* **Theory and Modeling:** Nonlinear elasticity, finite element methods, plate/shell theory, growth theory, multi-field coupled modeling, analytical methods.
-* **Experimental Techniques:** Soft-material 3D printing, laser cutting, polymer preparation, quasi-static mechanical testing, digital image correlation.
-* **Software Platforms:** ABAQUS, Mathematica, MATLAB, FEniCSx, AutoCAD.
-* **Programming and Writing:** Fortran, Python, C++, LaTeX.
-* **English:** IELTS 6.5, CET-6.
 
 </div>

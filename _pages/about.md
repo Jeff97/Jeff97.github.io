@@ -28,10 +28,9 @@ research_highlights:
 ---
 
 <section class="academic-intro academic-intro--located">
-  <div class="academic-location" aria-label="Office location: 华南理工大学交通大楼，广东省广州市天河区。地图标记对应交通大楼建筑轮廓。">
-    <div class="academic-location__map" style="background-image: url('{{ "/images/scut-wushan-map.svg" | relative_url }}');" aria-hidden="true"></div>
+  <div class="academic-location" aria-label="Office location: 华南理工大学交通大楼，广东省广州市天河区。红色地图标记为交通大楼。">
+    <img class="academic-location__map" src="{{ "/images/scut-transportation-building-map.jpg" | relative_url }}" alt="华南理工大学五山校区地图，红色标记显示交通大楼，位于五山路西侧、广园快速路北侧" width="1078" height="1198">
     <a class="academic-location__pin" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8D%8E%E5%8D%97%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6%E4%BA%94%E5%B1%B1%E6%A0%A1%E5%8C%BA%E4%BA%A4%E9%80%9A%E5%A4%A7%E6%A5%BC%2C+%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%B9%BF%E5%B7%9E%E5%B8%82%E5%A4%A9%E6%B2%B3%E5%8C%BA%E4%BA%94%E5%B1%B1%E8%B7%AF381%E5%8F%B7" target="_blank" rel="noopener noreferrer" aria-label="在 Google Maps 查找华南理工大学交通大楼（新窗口）">
-      <span class="academic-location__dot" aria-hidden="true"></span>
       <span class="academic-location__label"><strong>SCUT · Guangzhou</strong><span lang="zh-CN">五山校区 · 交通大楼</span></span>
     </a>
   </div>
@@ -41,7 +40,7 @@ research_highlights:
   </div>
   <div class="academic-tags">
     <span>Soft Matter Mechanics</span>
-    <span>Growth &amp; Morphing</span>
+    <span>Morphoelasticity</span>
     <span>Plate &amp; Shell Theory</span>
     <span>Multiphysics Modelling</span>
     <span>Finite Element Methods</span>
@@ -50,7 +49,7 @@ research_highlights:
 
 I am **Zhanfeng Li (李展锋)**, an **Assistant Researcher (Postdoctoral Fellow)** at the School of Civil Engineering and Transportation, **South China University of Technology (SCUT, 华南理工大学)**, working with **Prof. Xiaohu Yao**. I received my Ph.D. in Mechanics from SCUT in 2023 and was a visiting Ph.D. student at Swansea University (2021.11-2022.11), co-supervised by **Prof. Mokarram Hossain**.
 
-## Latest publication
+<h2 class="home-section-title" id="latest-publication"><span>Latest publication</span></h2>
 
 <section class="featured-paper">
   <div>
@@ -92,7 +91,7 @@ I am **Zhanfeng Li (李展锋)**, an **Assistant Researcher (Postdoctoral Fellow
 {% endcapture %}
 {% assign research_highlights = research_highlights | strip %}
 {% if research_highlights != empty %}
-## Research highlights
+<h2 class="home-section-title" id="research-highlights"><span>Research highlights</span></h2>
 
 <section class="research-grid">
 {{ research_highlights }}

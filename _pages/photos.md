@@ -27,6 +27,10 @@ gallery_2026:
     image_path: /photos/20260613-GraduationGroup.jpg
     alt: "Graduation group photo at SCUT"
     title: "Graduation group photo, SCUT (2026-06-13)"
+  - url: /photos/20260528-SCUT-Staff-Fun-Sports.jpg
+    image_path: /photos/20260528-SCUT-Staff-Fun-Sports.jpg
+    alt: "SCUT Staff Fun Sports Day — Group Photo (2026-05-28)"
+    title: "SCUT Staff Fun Sports Day — Group Photo (2026-05-28)"
 gallery_2025:
   - url: /photos/20250906-JiongGroup.jpg
     image_path: /photos/20250906-JiongGroup.jpg

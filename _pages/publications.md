@@ -62,7 +62,9 @@ author_profile: true
 </style>
 
 <div class="publications-page">
-<p>18 peer-reviewed journal articles. Publications are listed in reverse chronological order within each category.</p>
+<p><strong>18 peer-reviewed journal articles:</strong> <strong>7</strong> as <em>first author</em> and <strong>11</strong> as a <em>co-author</em>, covering finite-strain growth mechanics, multiphysics modelling, computational morphoelasticity and the shape programming of soft structures.{% if site.author.googlescholar %} The complete record is available through <a href="{{ site.author.googlescholar }}">Google Scholar</a>.{% endif %}</p>
+
+<p><strong>Contribution and qualitative significance:</strong> My research has progressed from <em>analytical inverse design</em> of growth-driven plates and shells, through <em>mixed finite-element multiphysics modelling</em>, to <em>3D magneto-mechanical growth</em>. I have also carried out experimental work and model validation and developed a <em>parameterised algorithm</em> for shell shape transformations, connecting analytical and computational advances with experimentally tested shape programming. Co-authored outputs broaden this base to robust discretisation, multilayer and hard-magnetic mechanics, conformal programming and active-material applications. Related research code is summarised under <a href="{{ base_path }}/cv/#open-science">Open Science</a>.</p>
 
 <section class="journal-overview" id="journal-overview" aria-labelledby="journal-overview-title" hidden>
   <div class="journal-overview-heading">
@@ -76,9 +78,7 @@ author_profile: true
   </div>
 </section>
 
-{% if site.author.googlescholar %}
-<p>See also my <a href="{{ site.author.googlescholar }}">Google Scholar profile</a>.</p>
-{% endif %}
+<p>Publications are listed in reverse chronological order within each category.</p>
 
 <!-- Bibliographic metadata verified against Crossref DOI records on 2026-09-08.
      Author confirmed no corresponding-author publications at this update. -->
