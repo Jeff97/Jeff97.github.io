@@ -10,20 +10,31 @@ var $btn = $('#site-nav button');
 var $vlinks = $('#site-nav .visible-links');
 var $hlinks = $('#site-nav .hidden-links');
 
+function visibleLinksWidth() {
+  var width = 0;
+  $vlinks.children().each(function() {
+    width += $(this).outerWidth(true);
+  });
+  return width;
+}
+
 function updateNav() {
   // Re-measure at the current font size instead of reusing widths from a
   // different breakpoint. Appending hidden links preserves their order.
   $vlinks.append($hlinks.children());
   $btn.addClass('hidden');
+  $nav.removeClass('has-overflow');
   var availableSpace = $nav.width();
 
-  while ($vlinks.width() > availableSpace && $vlinks.children().length > 1) {
+  // The list fills the bar, so measure the items rather than the flex container.
+  while (visibleLinksWidth() > availableSpace && $vlinks.children().length > 1) {
     $vlinks.children('*:not(.masthead__menu-item--lg)').last().prependTo($hlinks);
     $btn.removeClass('hidden');
     availableSpace = $nav.width() - $btn.outerWidth(true) - 12;
   }
 
   var hiddenCount = $hlinks.children().length;
+  $nav.toggleClass('has-overflow', hiddenCount > 0);
   $btn.attr('count', hiddenCount);
   if (!hiddenCount) {
     $hlinks.addClass('hidden');
