@@ -1,0 +1,259 @@
+/* Liquid Glass is limited to the main navigation and personal profile. */
+:root {
+  --surface-border: #dce6ee;
+  --surface-shadow: 0 8px 24px rgba(34, 57, 83, 0.055);
+  --glass-background:
+    radial-gradient(circle 260px at var(--glass-x, 18%) var(--glass-y, 0%), rgba(255, 255, 255, 0.64), transparent 70%),
+    linear-gradient(115deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.12) 42%, rgba(218, 237, 252, 0.25));
+  --glass-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), inset 0 -1px 0 rgba(220, 234, 255, 0.55), inset 1px 0 0 rgba(255, 255, 255, 0.6), 0 12px 36px rgba(43, 71, 123, 0.12), 0 2px 6px rgba(49, 77, 115, 0.06);
+}
+
+@mixin clear-glass($blur: 22px, $surface: var(--glass-background)) {
+  border: 1px solid var(--surface-border);
+  background: #edf4fb;
+  box-shadow: var(--glass-shadow);
+
+  @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    background: $surface;
+    -webkit-backdrop-filter: blur($blur) saturate(180%);
+    backdrop-filter: blur($blur) saturate(180%);
+  }
+
+  // Only the rim is painted: the mask leaves all text and imagery untouched.
+  @supports ((mask-composite: exclude) or (-webkit-mask-composite: xor)) {
+    &::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      display: block;
+      width: auto;
+      height: auto;
+      border: 0;
+      padding: 1.5px;
+      border-radius: inherit;
+      background: conic-gradient(from var(--glass-angle, 145deg), rgba(255, 255, 255, 0.95), rgba(164, 224, 255, 0.45) 18%, rgba(219, 197, 255, 0.5) 35%, rgba(255, 255, 255, 0.95) 52%, rgba(188, 239, 235, 0.5) 72%, rgba(255, 255, 255, 0.95));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+  }
+}
+
+
+body { background: #fbfcfe; }
+
+.masthead {
+  --nav-glass-background:
+    radial-gradient(circle 260px at var(--glass-x, 18%) var(--glass-y, 0%), rgba(255, 255, 255, 0.24), transparent 70%),
+    linear-gradient(115deg, rgba(255, 255, 255, 0.20), rgba(255, 255, 255, 0.04) 42%, rgba(218, 237, 252, 0.08));
+  @include clear-glass(10px, var(--nav-glass-background));
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 1240px;
+  height: auto;
+  border-radius: 999px;
+  animation: none;
+
+  &__inner-wrap {
+    padding: 6px 12px;
+  }
+
+  .greedy-nav {
+    min-height: 44px;
+    background: transparent;
+  }
+
+  .masthead__menu-item--lg { padding-right: 0.65rem; }
+
+  .masthead__menu-item a {
+    margin: 0 2px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    color: #34465a;
+    font-family: $serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0;
+    transition: background 180ms ease, box-shadow 180ms ease, color 180ms ease;
+
+    &::before { display: none; }
+
+    &:hover { background: rgba(255, 255, 255, 0.35); color: #123e66; }
+
+    &[aria-current="page"] {
+      color: #164f7e;
+      background: linear-gradient(140deg, rgba(255, 255, 255, 0.7), rgba(211, 234, 255, 0.28));
+      box-shadow: inset 0 1px 0 #fff, 0 2px 8px rgba(35, 66, 99, 0.1);
+    }
+  }
+
+  .greedy-nav button {
+    top: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(220, 236, 255, 0.38);
+    color: #234d72;
+  }
+
+  .navicon,
+  .navicon::before,
+  .navicon::after { background: #234d72; }
+  .close .navicon { background: transparent; }
+
+  .hidden-links {
+    @include clear-glass(28px);
+    margin-top: 14px;
+    padding: 8px;
+    min-width: 190px;
+    border-radius: 22px;
+
+    &::after { display: none; }
+    a { border-radius: 14px; }
+  }
+}
+
+
+.sidebar { opacity: 1; }
+.author-profile {
+  @include clear-glass;
+  position: relative;
+  padding: 20px 16px;
+  border-radius: 26px;
+  box-shadow: none;
+}
+.author__avatar img {
+  border: 4px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 12px 30px rgba(38, 73, 129, 0.16);
+}
+.author__bio { color: #465b73; }
+.author__urls a {
+  padding: 5px 7px;
+  border-radius: 10px;
+  transition: background 180ms ease;
+  &:hover { background: rgba(255, 255, 255, 0.42); }
+}
+.author__urls-wrapper > button {
+  border-radius: 999px;
+  min-height: 42px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: inset 0 1px 0 #fff, 0 3px 10px rgba(40, 65, 109, 0.1);
+}
+
+// Content uses solid surfaces; section banners come from the original theme.
+.academic-intro,
+.featured-paper,
+.research-card,
+.research-video,
+.publication-update,
+.list__item .archive__item {
+  border: 1px solid var(--surface-border);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: var(--surface-shadow);
+}
+
+.publication-update {
+  padding: 1.5rem 1.7rem;
+
+  h3 { margin: 0 0 0.7rem; font-size: 1.2em; line-height: 1.45; }
+  p { margin: 0 0 0.55rem; font-size: 0.85em; }
+  &__meta { color: #52687e !important; }
+  .academic-button { margin-top: 0.45rem; }
+}
+.publication-update h3 a,
+.featured-paper__title a {
+  color: #214f72;
+  text-decoration: none;
+  &:hover { text-decoration: underline; text-underline-offset: 3px; }
+}
+.research-video {
+  padding: 8px;
+  &__media { border-radius: 13px; }
+  figcaption { padding: 0.85rem 0.65rem 0.65rem; }
+  figcaption > span { color: #52687e; }
+  &__links a { color: #3f617f; text-underline-offset: 3px; }
+}
+.page__footer { background: #eef3f8; border-top: 1px solid #e0e8f0; }
+
+:target { scroll-margin-top: 100px; }
+a:focus-visible, button:focus-visible, video:focus-visible {
+  outline: 3px solid #1d74ae;
+  outline-offset: 4px;
+}
+.masthead .greedy-nav button:focus-visible { outline: 3px solid #1d74ae; }
+
+@media (max-width: 1023px) {
+  .sidebar { position: relative; z-index: 5; }
+  .author-profile {
+    display: grid;
+    grid-template-columns: 46px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 22px;
+  }
+  .author-profile .author__avatar { display: block; width: 46px; }
+  .author-profile .author__avatar img { width: 46px; max-width: 46px; padding: 0; }
+  .author-profile .author__content { display: block; min-width: 0; padding: 0; }
+  .author-profile .author__name { font-size: 14px; }
+  .author-profile .author__bio { margin-top: 5px; font-size: 12px; }
+  .author-profile .author__urls-wrapper { display: block; }
+  .author-profile .author__urls {
+    @include clear-glass(26px);
+    z-index: 30;
+    min-width: 220px;
+    padding: 12px;
+    border-radius: 20px;
+    background-color: rgba(243, 248, 255, 0.88);
+    &::after { display: none; }
+  }
+}
+
+@media (max-width: 768px) {
+  .masthead { top: 8px; width: calc(100% - 20px); }
+  .masthead__inner-wrap { padding: 5px 8px; }
+  .masthead .masthead__menu-item a { padding: 10px 12px; font-size: 16px; }
+  .masthead .masthead__menu-item--lg { padding-right: 0.2rem; }
+  .publication-update { padding: 1.25rem; }
+  .research-video__play { right: 0.65rem; bottom: 0.65rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .masthead, .sidebar, .page, .archive,
+  .masthead a, .author__urls a, .academic-button { animation: none; transition: none; }
+  .academic-button:hover { transform: none; }
+}
+
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .masthead, .masthead .hidden-links, .author-profile, .author-profile .author__urls {
+    background: #f4f8fc;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    border-color: #8296ad;
+    &::before { display: none; }
+  }
+}
+
+@media print {
+  body { background: #fff; }
+  .masthead, .research-video__play { display: none; }
+  .author-profile {
+    background: #fff;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+    &::before { display: none; }
+  }
+  .academic-intro, .featured-paper, .research-card, .research-video, .publication-update {
+    box-shadow: none;
+    break-inside: avoid;
+  }
+}

@@ -8,9 +8,9 @@ author_profile: true
 redirect_from:
   - /about/
   - /about.html
-latest_publication_doi: "10.1016/j.ijmecsci.2026.111329"
-latest_publication_image: "/images/IJMS-2026-experimental-results.png"
-latest_publication_videos: [latest]
+featured_publication_doi: "10.1016/j.ijmecsci.2026.111329"
+featured_publication_image: "/images/IJMS-2026-experimental-results.png"
+featured_publication_videos: [latest]
 research_highlights:
   - title: "Stress-free shape programming"
     doi: "10.1016/j.ijengsci.2025.104266"
@@ -48,6 +48,16 @@ I am **Zhanfeng Li (李展锋)**, an **Assistant Researcher (Postdoctoral Fellow
 
 <h2 class="home-section-title" id="latest-publication"><span>Latest publication</span></h2>
 
+<article class="publication-update">
+  <p class="section-kicker">New collaboration · Thin-Walled Structures</p>
+  <h3><a href="https://doi.org/10.1016/j.tws.2026.115687">An energy-based variational-asymptotic shell model for bending and snap-through of hard-magnetic soft material shells</a></h3>
+  <p>Zuodong Wang, <strong>Zhanfeng Li</strong>, Xiang Yu &amp; Jiong Wang</p>
+  <p class="publication-update__meta">Volume 232, 115687 (2027) · Published online in 2026</p>
+  <a class="academic-button academic-button--quiet" href="{{ '/publications/#energy-based-shell-model' | relative_url }}">View publication <span aria-hidden="true">↗</span></a>
+</article>
+
+<h2 class="home-section-title" id="featured-publication"><span>Featured publication</span></h2>
+
 <section class="featured-paper">
   <div>
     <p class="section-kicker">International Journal of Mechanical Sciences · 2026</p>
@@ -56,23 +66,23 @@ I am **Zhanfeng Li (李展锋)**, an **Assistant Researcher (Postdoctoral Fellow
     <p class="featured-paper__summary">This work derives explicit analytical relations between body forces, growth fields, and target geometry, and validates the resulting inverse-design framework with finite-element simulations and silicone-plate experiments.</p>
     <div class="featured-paper__actions">
       <a class="academic-button" href="/files/papers/Li-2026-Growth-based-shape-control-IJMS.pdf">Read the paper (PDF)</a>
-      <a class="academic-button academic-button--quiet" href="https://doi.org/{{ page.latest_publication_doi }}">View DOI</a>
+      <a class="academic-button academic-button--quiet" href="https://doi.org/{{ page.featured_publication_doi }}">View DOI</a>
     </div>
   </div>
   <figure>
-    <img src="{{ page.latest_publication_image }}" alt="Experimental validation of growth-based shape control under self-weight">
+    <img src="{{ page.featured_publication_image }}" alt="Experimental validation of growth-based shape control under self-weight">
     <figcaption>Experimental validation: fabricated silicone plates, gravity-driven deformation, and agreement with target shapes and simulations.</figcaption>
   </figure>
 </section>
 
-{% include research-videos.html video_ids=page.latest_publication_videos label="Latest publication videos" %}
+{% include research-videos.html video_ids=page.featured_publication_videos label="Featured publication videos" %}
 
 {% capture research_highlights %}
 {% for highlight in page.research_highlights %}
-  {% assign duplicates_latest = false %}
-  {% if highlight.doi and highlight.doi == page.latest_publication_doi %}{% assign duplicates_latest = true %}{% endif %}
-  {% if highlight.image and highlight.image == page.latest_publication_image %}{% assign duplicates_latest = true %}{% endif %}
-  {% unless duplicates_latest %}
+  {% assign duplicates_featured = false %}
+  {% if highlight.doi and highlight.doi == page.featured_publication_doi %}{% assign duplicates_featured = true %}{% endif %}
+  {% if highlight.image and highlight.image == page.featured_publication_image %}{% assign duplicates_featured = true %}{% endif %}
+  {% unless duplicates_featured %}
   <article class="research-highlight">
   <div class="research-card">
     <div>

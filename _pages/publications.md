@@ -62,7 +62,7 @@ author_profile: true
 </style>
 
 <div class="publications-page">
-<p><strong>18 peer-reviewed journal articles:</strong> <strong>7</strong> as <em>first author</em> and <strong>11</strong> as a <em>co-author</em>, covering finite-strain growth mechanics, multiphysics modelling, computational morphoelasticity and the shape programming of soft structures.{% if site.author.googlescholar %} The complete record is available through <a href="{{ site.author.googlescholar }}">Google Scholar</a>.{% endif %}</p>
+<p><strong>19 peer-reviewed journal articles:</strong> <strong>7</strong> as <em>first author</em> and <strong>12</strong> as a <em>co-author</em>, covering finite-strain growth mechanics, multiphysics modelling, computational morphoelasticity and the shape programming of soft structures.{% if site.author.googlescholar %} The complete record is available through <a href="{{ site.author.googlescholar }}">Google Scholar</a>.{% endif %}</p>
 
 <p><strong>Contribution and qualitative significance:</strong> My research has progressed from <em>analytical inverse design</em> of growth-driven plates and shells, through <em>mixed finite-element multiphysics modelling</em>, to <em>3D magneto-mechanical growth</em>. I have also carried out experimental work and model validation and developed a <em>parameterised algorithm</em> for shell shape transformations, connecting analytical and computational advances with experimentally tested shape programming. Co-authored outputs broaden this base to robust discretisation, multilayer and hard-magnetic mechanics, conformal programming and active-material applications. Related research code is summarised under <a href="{{ base_path }}/cv/#open-science">Open Science</a>.</p>
 
@@ -78,10 +78,9 @@ author_profile: true
   </div>
 </section>
 
-<p>Publications are listed in reverse chronological order within each category.</p>
-
-<!-- Bibliographic metadata verified against Crossref DOI records on 2026-09-08.
-     Author confirmed no corresponding-author publications at this update. -->
+<!-- Bibliographic metadata verified against Crossref DOI records on 2026-09-08;
+     new TWS article and AMSS volume/pages checked on 2026-10-22.
+     Author confirmed no corresponding-author publications at the September update. -->
 
 <h2 class="publication-section-title"><span>First- or Corresponding-Author Publications</span></h2>
 <ol class="publication-list">
@@ -131,6 +130,12 @@ author_profile: true
 
 <h2 class="publication-section-title"><span>Co-authored Publications</span></h2>
 <ol class="publication-list">
+  <li id="energy-based-shell-model">
+    <h3 class="publication-title"><a href="https://doi.org/10.1016/j.tws.2026.115687">An energy-based variational-asymptotic shell model for bending and snap-through of hard-magnetic soft material shells</a></h3>
+    <p class="publication-authors">Zuodong Wang, <strong>Zhanfeng Li</strong>, Xiang Yu, and Jiong Wang.</p>
+    <p class="publication-venue"><em>Thin-Walled Structures</em>, <strong>232</strong>, 115687 (2027). Published online in 2026.</p>
+    <p class="publication-links"><a href="https://doi.org/10.1016/j.tws.2026.115687">DOI: 10.1016/j.tws.2026.115687</a></p>
+  </li>
   <li>
     <h3 class="publication-title"><a href="https://doi.org/10.1016/j.jmps.2026.106697">Nonreciprocal transition waves in active lattices</a></h3>
     <p class="publication-authors">Yao Zhang, Chengxuan Zhai, <strong>Zhanfeng Li</strong>, Jiahao Li, Guangjin Mou, Lizichen Chen, Yangkun Du, Michel Destrade, Changguo Wang, and Yafei Wang.</p>
@@ -152,7 +157,7 @@ author_profile: true
   <li>
     <h3 class="publication-title"><a href="https://doi.org/10.1007/s10338-025-00693-7">A Variational Continuum Model for Variant Reorientation of Ni–Mn–Ga Alloys Under Dynamic Mechanical Loading</a></h3>
     <p class="publication-authors">Jiong Wang, Yongtao Liang, <strong>Zhanfeng Li</strong>, Chengkai Fan, and Jianbin Wu.</p>
-    <p class="publication-venue"><em>Acta Mechanica Solida Sinica</em> (2026). Advance online publication.</p>
+    <p class="publication-venue"><em>Acta Mechanica Solida Sinica</em>, <strong>39</strong>, 1322–1334 (2026).</p>
     <p class="publication-links"><a href="https://doi.org/10.1007/s10338-025-00693-7">DOI: 10.1007/s10338-025-00693-7</a></p>
   </li>
   <li>
@@ -263,7 +268,12 @@ author_profile: true
     if (items.length === 1) {
       const journal = items[0];
       Object.assign(journal.button.style, { left: x + 'px', top: y + 'px', width: width + 'px', height: height + 'px' });
-      const labelSize = Math.max(12, Math.min(32, (width - 24) / (journal.abbr.length * 0.75), height / 3));
+      const tileStyle = window.getComputedStyle(journal.button);
+      const available = width - parseFloat(tileStyle.paddingLeft) - parseFloat(tileStyle.paddingRight)
+        - parseFloat(tileStyle.borderLeftWidth) - parseFloat(tileStyle.borderRightWidth);
+      // Reserve room for wide capital letters (especially CMAME) without a
+      // minimum font size that can force text beyond a narrow tile.
+      const labelSize = Math.min(32, available / (journal.abbr.length * 0.92), height / 3);
       journal.button.style.setProperty('--journal-label-size', labelSize + 'px');
       journal.button.querySelector('.journal-quantity').textContent = width < 76 ? String(journal.count) : journal.count + (journal.count === 1 ? ' article' : ' articles');
       return;
