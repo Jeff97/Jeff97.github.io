@@ -1,4 +1,4 @@
-/* Liquid Glass is limited to the main navigation and personal profile. */
+/* Liquid Glass for navigation, the personal profile, labels, and controls. */
 :root {
   --surface-border: #dce6ee;
   --surface-shadow: 0 8px 24px rgba(34, 57, 83, 0.055);
@@ -49,7 +49,7 @@ body { background: #fbfcfe; }
     radial-gradient(circle 260px at var(--glass-x, 18%) var(--glass-y, 0%), rgba(255, 255, 255, 0.24), transparent 70%),
     linear-gradient(115deg, rgba(255, 255, 255, 0.20), rgba(255, 255, 255, 0.04) 42%, rgba(218, 237, 252, 0.08));
   @include clear-glass(10px, var(--nav-glass-background));
-  top: 12px;
+  top: 6px;
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 32px);
@@ -140,8 +140,26 @@ body { background: #fbfcfe; }
   box-shadow: none;
 }
 .author__avatar img {
-  border: 4px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 0 12px 30px rgba(38, 73, 129, 0.16);
+  display: block;
+  margin: 0 auto;
+  padding: 3px;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#f4f8fc, #f4f8fc) padding-box,
+    linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(155, 201, 228, 0.7) 48%, rgba(188, 225, 225, 0.65)) border-box;
+  box-shadow: 0 6px 18px rgba(38, 73, 129, 0.1);
+}
+@media (min-width: 1024px) {
+  .author-profile > .author__avatar {
+    display: flex;
+    justify-content: center;
+  }
+  .author-profile .author__content {
+    text-align: center;
+  }
+  .author-profile .author__name {
+    line-height: 1.35;
+  }
 }
 .author__bio { color: #465b73; }
 .author__urls a {
@@ -150,12 +168,84 @@ body { background: #fbfcfe; }
   transition: background 180ms ease;
   &:hover { background: rgba(255, 255, 255, 0.42); }
 }
+.author__urls-wrapper > button { min-height: 42px; }
+
+// Compact glass surfaces share the navigation's light and rim treatment.
+.academic-tags > span,
+.academic-button,
+.talks-page .talk-type,
+.research-video__play,
 .author__urls-wrapper > button {
+  --surface-border: rgba(165, 194, 218, 0.5);
+  --control-glass-background:
+    radial-gradient(ellipse 100px 60px at var(--glass-x, 20%) var(--glass-y, 0%), rgba(255, 255, 255, 0.88), transparent 72%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.66), rgba(235, 245, 255, 0.28) 48%, rgba(204, 228, 247, 0.46));
+  --glass-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.96), inset 0 -1px 0 rgba(155, 191, 218, 0.24), 0 3px 10px rgba(43, 71, 123, 0.08);
+  @include clear-glass(14px, var(--control-glass-background));
+  isolation: isolate;
   border-radius: 999px;
-  min-height: 42px;
-  background: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.85);
-  box-shadow: inset 0 1px 0 #fff, 0 3px 10px rgba(40, 65, 109, 0.1);
+  color: #234f70;
+
+  &::before { padding: 1px; }
+}
+
+.academic-tags > span,
+.academic-button,
+.talks-page .talk-type,
+.author__urls-wrapper > button { position: relative; }
+
+.academic-tags > span,
+.talks-page .talk-type {
+  --glass-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.96), inset 0 -1px 0 rgba(155, 191, 218, 0.2), 0 2px 7px rgba(43, 71, 123, 0.05);
+}
+
+.academic-button,
+.research-video__play,
+.author__urls-wrapper > button {
+  color: #234f70 !important;
+  transition: box-shadow 180ms ease, border-color 180ms ease, transform 180ms ease;
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: inset 0 1px 4px rgba(43, 71, 123, 0.13), inset 0 -1px 0 rgba(255, 255, 255, 0.8);
+  }
+}
+.academic-button { gap: 0.3em; }
+.author__urls-wrapper > button { border: 1px solid var(--surface-border) !important; }
+.author__urls-wrapper > button:hover {
+  background-color: rgba(221, 237, 250, 0.55);
+  color: #234f70 !important;
+}
+
+.academic-button:not(.academic-button--quiet) {
+  --surface-border: rgba(114, 165, 204, 0.6);
+  --control-glass-background:
+    radial-gradient(ellipse 120px 65px at var(--glass-x, 20%) var(--glass-y, 0%), rgba(255, 255, 255, 0.8), transparent 72%),
+    linear-gradient(135deg, rgba(213, 236, 253, 0.8), rgba(160, 205, 238, 0.64) 52%, rgba(191, 229, 240, 0.7));
+  color: #16496d !important;
+}
+
+.research-video__play {
+  // A denser tint keeps the label readable over both light and dark frames.
+  --control-glass-background:
+    radial-gradient(ellipse 100px 60px at var(--glass-x, 20%) var(--glass-y, 0%), rgba(255, 255, 255, 0.88), transparent 72%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(225, 239, 251, 0.86));
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .academic-button:hover,
+  .research-video__play:hover,
+  .author__urls-wrapper > button:hover {
+    border-color: rgba(126, 172, 210, 0.72);
+    box-shadow: inset 0 1px 0 #fff, inset 0 -1px 0 rgba(152, 191, 221, 0.32), 0 5px 15px rgba(43, 71, 123, 0.14);
+    transform: translateY(-1px);
+  }
+  .academic-button:active,
+  .research-video__play:active,
+  .author__urls-wrapper > button:active {
+    transform: translateY(0);
+    box-shadow: inset 0 1px 4px rgba(43, 71, 123, 0.13), inset 0 -1px 0 rgba(255, 255, 255, 0.8);
+  }
 }
 
 // Content uses solid surfaces; section banners come from the original theme.
@@ -229,7 +319,7 @@ a:focus-visible, button:focus-visible, video:focus-visible {
 }
 
 @media (max-width: 768px) {
-  .masthead { top: 8px; width: calc(100% - 20px); }
+  .masthead { top: 4px; width: calc(100% - 20px); }
   .masthead__inner-wrap { padding: 5px 8px; }
   .masthead .masthead__menu-item a { padding: 10px 12px; font-size: 16px; }
   .publication-update { padding: 1.25rem; }
@@ -239,8 +329,10 @@ a:focus-visible, button:focus-visible, video:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .masthead, .sidebar, .page, .archive,
-  .masthead a, .author__urls a, .academic-button { animation: none; transition: none; }
-  .academic-button:hover { transform: none; }
+  .masthead a, .author__urls a, .academic-button,
+  .research-video__play, .author__urls-wrapper > button { animation: none; transition: none; }
+  .academic-button:hover, .research-video__play:hover,
+  .author__urls-wrapper > button:hover { transform: none; }
 }
 
 @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
@@ -251,6 +343,17 @@ a:focus-visible, button:focus-visible, video:focus-visible {
     border-color: #8296ad;
     &::before { display: none; }
   }
+  .academic-tags > span, .academic-button, .talks-page .talk-type,
+  .research-video__play, .author__urls-wrapper > button {
+    background: #f4f8fc;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    --surface-border: #8296ad;
+    border-color: var(--surface-border);
+    box-shadow: none;
+    &::before { display: none; }
+  }
+  .academic-button:not(.academic-button--quiet) { background: #d7eafa; }
 }
 
 @media print {
@@ -266,5 +369,13 @@ a:focus-visible, button:focus-visible, video:focus-visible {
   .academic-intro, .featured-paper, .research-card, .research-video, .publication-update {
     box-shadow: none;
     break-inside: avoid;
+  }
+  .academic-tags > span, .academic-button, .talks-page .talk-type,
+  .author__urls-wrapper > button {
+    background: #fff;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+    &::before { display: none; }
   }
 }

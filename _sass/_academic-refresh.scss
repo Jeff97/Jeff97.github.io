@@ -280,13 +280,9 @@ a:hover {
     display: inline-flex;
     align-items: center;
     padding: 0.26rem 0.7rem;
-    color: #295c78;
     font-size: 0.79em;
     font-weight: 650;
     line-height: 1.35;
-    background: #eaf4f8;
-    border: 1px solid #d2e6ee;
-    border-radius: 999px;
   }
 }
 
@@ -331,27 +327,10 @@ a:hover {
   display: inline-flex;
   align-items: center;
   padding: 0.55rem 0.9rem;
-  color: #fff !important;
   font-size: 0.83em;
   font-weight: 700;
   line-height: 1.25;
   text-decoration: none !important;
-  background: #0c6686;
-  border: 1px solid #0c6686;
-  border-radius: 7px;
-  transition: transform 0.18s ease, background 0.18s ease;
-
-  &:hover {
-    color: #fff !important;
-    background: #084b69;
-    transform: translateY(-1px);
-  }
-
-  &--quiet {
-    color: #0d5d7d !important;
-    background: #fff;
-    border-color: #b8d5e2;
-  }
 }
 
 .featured-paper figure {

@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   var preference = window.matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
-  var selector = '.masthead, .author-profile';
+  var selector = '.masthead, .author-profile, .academic-tags > span, .academic-button, .talk-type, .research-video__play, .author__urls-wrapper > button';
   var active = null;
   var frame = 0;
   var x = 0;
