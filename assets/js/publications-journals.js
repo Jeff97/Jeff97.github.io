@@ -62,11 +62,21 @@
       const tileStyle = window.getComputedStyle(journal.button);
       const available = width - parseFloat(tileStyle.paddingLeft) - parseFloat(tileStyle.paddingRight)
         - parseFloat(tileStyle.borderLeftWidth) - parseFloat(tileStyle.borderRightWidth);
-      // Reserve room for wide capital letters (especially CMAME) without a
-      // minimum font size that can force text beyond a narrow tile.
-      const labelSize = Math.min(32, available / (journal.abbr.length * 0.92), height / 3);
+      // Increase journal names by 10px and article counts from 12px to 28px.
+      // Fit each enlarged line to narrow tiles without clipping or word breaks.
+      const labelSize = Math.min(32, available / (journal.abbr.length * 0.92), height / 3) + 10;
       journal.button.style.setProperty('--journal-label-size', labelSize + 'px');
-      journal.button.querySelector('.journal-quantity').textContent = width < 76 ? String(journal.count) : journal.count + (journal.count === 1 ? ' article' : ' articles');
+      journal.button.style.setProperty('--journal-quantity-size', '28px');
+      const abbr = journal.button.querySelector('.journal-abbr');
+      const quantity = journal.button.querySelector('.journal-quantity');
+      quantity.textContent = width < 76 ? String(journal.count) : journal.count + (journal.count === 1 ? ' article' : ' articles');
+      const fittedLabelSize = labelSize * Math.min(1, Math.max(0, available - 1) / abbr.offsetWidth);
+      const fittedQuantitySize = 28 * Math.min(1, Math.max(0, available - 1) / quantity.offsetWidth);
+      const availableHeight = height - parseFloat(tileStyle.paddingTop) - parseFloat(tileStyle.paddingBottom)
+        - parseFloat(tileStyle.borderTopWidth) - parseFloat(tileStyle.borderBottomWidth) - parseFloat(tileStyle.rowGap);
+      const heightScale = Math.min(1, Math.max(0, availableHeight - 1) / (fittedLabelSize * 1.2 + fittedQuantitySize * 1.3));
+      journal.button.style.setProperty('--journal-label-size', fittedLabelSize * heightScale + 'px');
+      journal.button.style.setProperty('--journal-quantity-size', fittedQuantitySize * heightScale + 'px');
       return;
     }
     const sum = items.reduce((s, item) => s + item.count, 0);
@@ -86,6 +96,7 @@
   root.hidden = false;
   function redraw() { layout(journals, 0, 0, map.clientWidth, map.clientHeight); }
   redraw();
+  if (document.fonts) document.fonts.ready.then(redraw);
   if (window.ResizeObserver) new ResizeObserver(redraw).observe(map);
   else window.addEventListener('resize', redraw);
 }());
