@@ -63,7 +63,7 @@ author_profile: true
 </style>
 
 <div class="publications-page">
-<p><strong>19 peer-reviewed journal articles:</strong> <strong>7</strong> as <em>first author</em> and <strong>12</strong> as a <em>co-author</em>, covering finite-strain growth mechanics, multiphysics modelling, computational morphoelasticity and the shape programming of soft structures.{% if site.author.googlescholar %} The complete record is available through <a href="{{ site.author.googlescholar }}">Google Scholar</a>.{% endif %}</p>
+<p><strong>20 peer-reviewed journal articles:</strong> <strong>7</strong> as <em>first author</em> and <strong>13</strong> as a <em>co-author</em>, covering finite-strain growth mechanics, multiphysics modelling, computational morphoelasticity and the shape programming of soft structures.{% if site.author.googlescholar %} The complete record is available through <a href="{{ site.author.googlescholar }}">Google Scholar</a>.{% endif %}</p>
 
 <p><strong>Contribution and qualitative significance:</strong> My research has progressed from <em>analytical inverse design</em> of growth-driven plates and shells, through <em>mixed finite-element multiphysics modelling</em>, to <em>3D magneto-mechanical growth</em>. I have also carried out experimental work and model validation and developed a <em>parameterised algorithm</em> for shell shape transformations, connecting analytical and computational advances with experimentally tested shape programming. Co-authored outputs broaden this base to robust discretisation, multilayer and hard-magnetic mechanics, conformal programming and active-material applications. Related research code is summarised under <a href="{{ base_path }}/cv/#open-science">Open Science</a>.</p>
 
@@ -131,6 +131,12 @@ author_profile: true
 
 <h2 class="publication-section-title"><span>Co-authored Publications</span></h2>
 <ol class="publication-list">
+  <li id="thermoelastic-contact">
+    <h3 class="publication-title"><a href="https://doi.org/10.1016/j.jmps.2026.106905">Nonlinear thermoelastic contact between a rigid indenter and a wavy surface</a></h3>
+    <p class="publication-authors">Lizichen Chen, Yangkun Du, Yafei Wang, <strong>Zhanfeng Li</strong>, Zihao Du, Zhuangzhuang He, Rongqiao Xu, Michel Destrade, Gangfeng Wang, C.W. Lim, and Weiqiu Chen.</p>
+    <p class="publication-venue"><em>Journal of the Mechanics and Physics of Solids</em>, <strong>219</strong>, 106905 (February 2027). Published online in November 2026.</p>
+    <p class="publication-links"><a href="https://doi.org/10.1016/j.jmps.2026.106905">DOI: 10.1016/j.jmps.2026.106905</a></p>
+  </li>
   <li id="energy-based-shell-model">
     <h3 class="publication-title"><a href="https://doi.org/10.1016/j.tws.2026.115687">An energy-based variational-asymptotic shell model for bending and snap-through of hard-magnetic soft material shells</a></h3>
     <p class="publication-authors">Zuodong Wang, <strong>Zhanfeng Li</strong>, Xiang Yu, and Jiong Wang.</p>

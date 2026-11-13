@@ -49,11 +49,11 @@ I am **Zhanfeng Li (李展锋)**, an **Assistant Researcher (Postdoctoral Fellow
 <h2 class="home-section-title" id="latest-publication"><span>Latest publication</span></h2>
 
 <article class="publication-update">
-  <p class="section-kicker">New collaboration · Thin-Walled Structures</p>
-  <h3><a href="https://doi.org/10.1016/j.tws.2026.115687">An energy-based variational-asymptotic shell model for bending and snap-through of hard-magnetic soft material shells</a></h3>
-  <p>Zuodong Wang, <strong>Zhanfeng Li</strong>, Xiang Yu &amp; Jiong Wang</p>
-  <p class="publication-update__meta">Volume 232, 115687 (2027) · Published online in 2026</p>
-  <a class="academic-button academic-button--quiet" href="{{ '/publications/#energy-based-shell-model' | relative_url }}">View publication <span aria-hidden="true">↗</span></a>
+  <p class="section-kicker">New collaboration · Journal of the Mechanics and Physics of Solids</p>
+  <h3><a href="https://doi.org/10.1016/j.jmps.2026.106905">Nonlinear thermoelastic contact between a rigid indenter and a wavy surface</a></h3>
+  <p>Lizichen Chen, Yangkun Du, Yafei Wang, <strong>Zhanfeng Li</strong>, Zihao Du, Zhuangzhuang He, Rongqiao Xu, Michel Destrade, Gangfeng Wang, C.W. Lim &amp; Weiqiu Chen</p>
+  <p class="publication-update__meta">Volume 219 (February 2027), article 106905 · Published online in November 2026</p>
+  <a class="academic-button academic-button--quiet" href="{{ '/publications/#thermoelastic-contact' | relative_url }}">View publication <span aria-hidden="true">↗</span></a>
 </article>
 
 <h2 class="home-section-title" id="featured-publication"><span>Featured publication</span></h2>
